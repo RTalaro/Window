@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ccexg66yj5j51"]
+
+[ext_resource type="Script" uid="uid://b47gy0i3grbxv" path="res://scripts/border_window.gd" id="1_4daeo"]
+[ext_resource type="Script" uid="uid://cmakhiaubea2" path="res://scripts/window.gd" id="2_ckw17"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_f0d0f"]
+b = Vector2(500, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4daeo"]
+a = Vector2(0, 500)
+b = Vector2(500, 500)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ckw17"]
+b = Vector2(0, 500)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r5bmm"]
+a = Vector2(500, 0)
+b = Vector2(500, 500)
+
+[node name="BorderWindow" type="Node" unique_id=304158618]
+script = ExtResource("1_4daeo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2028530299]
+
+[node name="Top" type="CollisionShape2D" parent="StaticBody2D" unique_id=578171981]
+shape = SubResource("SegmentShape2D_f0d0f")
+
+[node name="Down" type="CollisionShape2D" parent="StaticBody2D" unique_id=855298660]
+shape = SubResource("SegmentShape2D_4daeo")
+
+[node name="Left" type="CollisionShape2D" parent="StaticBody2D" unique_id=1242970142]
+shape = SubResource("SegmentShape2D_ckw17")
+
+[node name="Right" type="CollisionShape2D" parent="StaticBody2D" unique_id=1828295208]
+shape = SubResource("SegmentShape2D_r5bmm")
+
+[node name="Window" type="Window" parent="." unique_id=169679679]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+size = Vector2i(500, 500)
+script = ExtResource("2_ckw17")
+
+[node name="Camera2D" type="Camera2D" parent="Window" unique_id=689111722]
+anchor_mode = 0
+
+[connection signal="size_changed" from="Window" to="." method="_on_window_size_changed"]
