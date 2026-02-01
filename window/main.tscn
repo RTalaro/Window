@@ -1,15 +1,21 @@
 [gd_scene format=3 uid="uid://s4c6m68td6vx"]
 
-[ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://scenes/border_window.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bo5wymk8ekwvk" path="res://main.gd" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://scenes/player.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://player/player.tscn" id="3_h2yge"]
 
-[node name="Main" type="Node2D" unique_id=1850638434]
+[node name="Main" type="Node" unique_id=1267416914]
 script = ExtResource("1_h2yge")
 
 [node name="BorderWindow" parent="." unique_id=304158618 instance=ExtResource("1_0xm2m")]
 
 [node name="player" parent="." unique_id=1769850770 instance=ExtResource("3_h2yge")]
-position = Vector2(238, 279)
+position = Vector2(696, 544)
+
+[node name="BorderWindow2" parent="." unique_id=1284540083 instance=ExtResource("1_0xm2m")]
+
+[node name="Window" parent="BorderWindow2" index="1" unique_id=169679679]
+position = Vector2i(800, 400)
 
 [editable path="BorderWindow"]
+[editable path="BorderWindow2"]
