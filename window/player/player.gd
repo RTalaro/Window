@@ -15,7 +15,6 @@ func _physics_process(delta: float) -> void:
 func get_input() -> void:
 	var input_direction = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = input_direction * 500
-
-func _input(event) -> void:
-	if event.is_action_pressed("Left Click"):
+	
+	if Input.is_action_just_pressed("Left Click"):
 		$Gun.shoot()

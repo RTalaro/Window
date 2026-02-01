@@ -11,16 +11,27 @@ config_version=5
 [application]
 
 config/name="Window"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalInput="*uid://iejpghgiofrp"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
 window/size/mode=3
+window/size/borderless=true
 window/size/transparent=true
 window/per_pixel_transparency/allowed=true
+
+[dotnet]
+
+project/assembly_name="Window"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/global_input/plugin.cfg")
 
 [input]
 

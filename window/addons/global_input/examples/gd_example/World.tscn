@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://nch1rd8egy2g"]
+
+[ext_resource type="Script" uid="uid://bkwrr647ahltr" path="res://addons/global_input/examples/gd_example/World.gd" id="1_a7dwo"]
+[ext_resource type="Script" uid="uid://0j20rkb7tyao" path="res://addons/global_input/examples/gd_example/Player.gd" id="1_dtvkm"]
+[ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="3_ic8st"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hts2e"]
+size = Vector2(128, 129)
+
+[node name="World" type="Node2D" unique_id=1539792300]
+script = ExtResource("1_a7dwo")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=2026094619]
+position = Vector2(593, 303)
+script = ExtResource("1_dtvkm")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=458351006]
+texture = ExtResource("3_ic8st")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=154859165]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_hts2e")
+
+[node name="Label" type="Label" parent="." unique_id=186993606]
+offset_right = 241.0
+offset_bottom = 75.0
+text = "Wasd to move
+
+Left click to get mouse position"
