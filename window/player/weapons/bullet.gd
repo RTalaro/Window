@@ -4,7 +4,7 @@ extends CharacterBody2D
 var target_direction : Vector2 = Vector2(1, 0)
 var despawn_time : int = 3
 
-func _ready() -> void:
+func _ready() -> void: 
 	despawn()
 
 func _physics_process(delta: float) -> void:

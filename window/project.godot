@@ -68,6 +68,7 @@ Down={
 2d_physics/layer_3="PLAYER ITEM RADIUS"
 2d_physics/layer_4="PLAYER DAMAGE"
 2d_physics/layer_5="PLAYER BULLET DETECION"
+2d_physics/layer_6="ENEMY"
 2d_physics/layer_7="ENEMY"
 2d_physics/layer_8="ENEMY OVERLAP"
 2d_physics/layer_9="ENEMY DETECTION"

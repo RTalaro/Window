@@ -1,7 +1,22 @@
 [gd_scene format=3 uid="uid://6wc2f4qka80l"]
 
 [ext_resource type="Script" uid="uid://dkl7u8o0oeghu" path="res://player/player.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://64lb57wkfj3w" path="res://player/placeholder_player.png" id="2_rkbax"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1dw6"]
+atlas = ExtResource("2_rkbax")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yw30f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1dw6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(100, 100)
@@ -17,8 +32,9 @@ collision_layer = 0
 collision_mask = 524291
 script = ExtResource("1_4flbx")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1715556070]
-texture = ExtResource("2_onrkg")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2093589252]
+sprite_frames = SubResource("SpriteFrames_yw30f")
+animation = &"idle"
 
 [node name="PlayerHitbox" type="Area2D" parent="." unique_id=2105686471]
 collision_mask = 0
