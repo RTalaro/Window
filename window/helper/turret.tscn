@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c3sdw3yvsrj3q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lmmv2"]
+
+[node name="Turret" type="Node2D" unique_id=2044634428]
+
+[node name="Base" type="Sprite2D" parent="." unique_id=1736103917]
+
+[node name="Gun" type="Sprite2D" parent="." unique_id=878878194]
+
+[node name="TurretDetection" type="Area2D" parent="." unique_id=1925481858]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretDetection" unique_id=1172365990]
+shape = SubResource("CircleShape2D_lmmv2")

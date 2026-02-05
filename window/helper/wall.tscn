@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://vik1m25hw20e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok30d"]
+
+[node name="Wall" type="Node2D" unique_id=947232948]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=38201863]
+
+[node name="WallCollision" type="StaticBody2D" parent="." unique_id=1585342996]
+collision_layer = 524288
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallCollision" unique_id=1154070820]
+shape = SubResource("RectangleShape2D_ok30d")

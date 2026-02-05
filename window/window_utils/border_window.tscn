@@ -37,6 +37,8 @@ script = ExtResource("1_4daeo")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2028530299]
 position = Vector2(400, 400)
+collision_layer = 4096
+collision_mask = 0
 
 [node name="Top" type="CollisionShape2D" parent="StaticBody2D" unique_id=578171981]
 shape = SubResource("SegmentShape2D_f0d0f")

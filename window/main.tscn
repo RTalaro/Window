@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bo5wymk8ekwvk" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://player/player.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://dvocrqgbuegeo" path="res://enemy/enemy.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://vik1m25hw20e" path="res://helper/wall.tscn" id="4_1bvp3"]
 
 [node name="Main" type="Node" unique_id=1267416914]
 script = ExtResource("1_h2yge")
@@ -13,35 +13,16 @@ script = ExtResource("1_h2yge")
 [node name="Window" parent="BorderWindow" index="1" unique_id=169679679]
 position = Vector2i(400, 267)
 
-[node name="player" parent="BorderWindow" unique_id=1769850770 instance=ExtResource("3_h2yge")]
-position = Vector2(587, 203)
-
-[node name="enemy" type="Node" parent="BorderWindow" unique_id=218961791]
-
-[node name="enemy" parent="BorderWindow/enemy" unique_id=1282059791 instance=ExtResource("4_1bvp3")]
-position = Vector2(120, 247)
-scale = Vector2(0.5, 0.5)
-
-[node name="enemy2" parent="BorderWindow/enemy" unique_id=1247461088 instance=ExtResource("4_1bvp3")]
-position = Vector2(179, 393)
-scale = Vector2(0.5, 0.5)
-
-[node name="enemy3" parent="BorderWindow/enemy" unique_id=1906460082 instance=ExtResource("4_1bvp3")]
-position = Vector2(258, 608)
-scale = Vector2(0.5, 0.5)
-
-[node name="enemy4" parent="BorderWindow/enemy" unique_id=528832910 instance=ExtResource("4_1bvp3")]
-position = Vector2(159, 554)
-scale = Vector2(0.5, 0.5)
-
-[node name="enemy5" parent="BorderWindow/enemy" unique_id=855489561 instance=ExtResource("4_1bvp3")]
-position = Vector2(320, 476)
-scale = Vector2(0.5, 0.5)
-
 [node name="BorderWindow2" parent="." unique_id=1284540083 instance=ExtResource("1_0xm2m")]
 
 [node name="Window" parent="BorderWindow2" index="1" unique_id=169679679]
 position = Vector2i(800, 267)
+
+[node name="player" parent="." unique_id=1769850770 instance=ExtResource("3_h2yge")]
+position = Vector2(187, 112)
+
+[node name="Wall" parent="." unique_id=947232948 instance=ExtResource("4_1bvp3")]
+position = Vector2(392, 80)
 
 [editable path="BorderWindow"]
 [editable path="BorderWindow2"]
