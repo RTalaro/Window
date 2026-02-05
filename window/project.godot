@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Window"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -63,7 +63,21 @@ Down={
 
 [layer_names]
 
-2d_physics/layer_2="ENEMY"
+2d_physics/layer_1="PLAYER"
+2d_physics/layer_2="PLAYER WALL"
+2d_physics/layer_3="PLAYER ITEM RADIUS"
+2d_physics/layer_4="PLAYER DAMAGE"
+2d_physics/layer_6="ENEMY"
+2d_physics/layer_7="ENEMY OVERLAP"
+2d_physics/layer_8="ENEMY DETECTION"
+2d_physics/layer_9="ENEMY BULLET"
+2d_physics/layer_11="COLLECTABLES"
+2d_physics/layer_12="BORDER"
+2d_physics/layer_13="WINDOW"
+2d_physics/layer_15="WALL"
+2d_physics/layer_16="TURRET DETECTION"
+2d_physics/layer_17="POISON"
+2d_physics/layer_18="BOMB"
 
 [physics]
 
