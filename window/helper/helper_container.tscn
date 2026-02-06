@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://v3b8aogn82hd"]
+
+[ext_resource type="Script" uid="uid://e13twguklq7e" path="res://helper/window.gd" id="1_hlokq"]
+[ext_resource type="Script" uid="uid://bbiypjal6mpkn" path="res://helper/helper_container.gd" id="1_qa3aw"]
+[ext_resource type="PackedScene" uid="uid://vik1m25hw20e" path="res://helper/wall.tscn" id="3_bn0jf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa3aw"]
+size = Vector2(100, 100)
+
+[node name="HelperContainer" type="Node" unique_id=515590093]
+script = ExtResource("1_qa3aw")
+
+[node name="Window" type="Window" parent="." unique_id=790258661]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+script = ExtResource("1_hlokq")
+
+[node name="Camera2D" type="Camera2D" parent="Window" unique_id=1203614023]
+anchor_mode = 0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1296639395]
+position = Vector2(50, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2138645783]
+shape = SubResource("RectangleShape2D_qa3aw")
+
+[node name="Wall" parent="." unique_id=947232948 node_paths=PackedStringArray("window") instance=ExtResource("3_bn0jf")]
+window = NodePath("../Window")
+
+[editable path="Wall"]
