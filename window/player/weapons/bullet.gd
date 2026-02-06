@@ -7,7 +7,7 @@ var despawn_time : int = 3
 func _ready() -> void: 
 	despawn()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	velocity = target_direction * speed
 	move_and_slide()
 

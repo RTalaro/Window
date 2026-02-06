@@ -6,4 +6,5 @@ extends Node2D
 
 
 func _process(delta: float) -> void:
-	position = window.position + Vector2i($Sprite2D.get_rect().size / 2)
+	if (window):
+		position = window.position + Vector2i($Sprite2D.get_rect().size / 2)

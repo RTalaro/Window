@@ -1,4 +1,4 @@
-extends Node
+extends NodeBase
 
 @onready var static_body_2d: StaticBody2D = $StaticBody2D
 
@@ -20,8 +20,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	static_body_2d.position = window.position
-	area_2d.position = Vector2(window.position)
-	area_2d.position += Vector2(window.size / 2)
+	@warning_ignore("integer_division")
+	area_2d.position = Vector2(window.position) + Vector2(window.size / 2)
 
 func _on_window_size_changed() -> void:
 	if (top):
@@ -41,8 +41,8 @@ func _on_window_size_changed() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	window_elements.append(area.get_parent())
-	print(window_elements)
+	area.get_parent().enter_window()
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	window_elements.erase(area.get_parent())
-	print(window_elements)
+	area.get_parent().exit_window()

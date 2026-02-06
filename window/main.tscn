@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bo5wymk8ekwvk" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://player/player.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://vik1m25hw20e" path="res://helper/wall.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://v3b8aogn82hd" path="res://helper/helper_container.tscn" id="5_lquwl"]
 
 [node name="Main" type="Node" unique_id=1267416914]
 script = ExtResource("1_h2yge")
@@ -13,16 +13,9 @@ script = ExtResource("1_h2yge")
 [node name="Window" parent="BorderWindow" index="1" unique_id=169679679]
 position = Vector2i(400, 267)
 
-[node name="BorderWindow2" parent="." unique_id=1284540083 instance=ExtResource("1_0xm2m")]
+[node name="HelperContainer" parent="." unique_id=515590093 instance=ExtResource("5_lquwl")]
 
-[node name="Window" parent="BorderWindow2" index="1" unique_id=169679679]
-position = Vector2i(800, 267)
-
-[node name="player" parent="." unique_id=1769850770 instance=ExtResource("3_h2yge")]
-position = Vector2(187, 112)
-
-[node name="Wall" parent="." unique_id=947232948 instance=ExtResource("4_1bvp3")]
-position = Vector2(392, 80)
+[node name="Player" parent="." unique_id=1769850770 instance=ExtResource("3_h2yge")]
+position = Vector2(646, 486)
 
 [editable path="BorderWindow"]
-[editable path="BorderWindow2"]

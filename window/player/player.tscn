@@ -29,7 +29,7 @@ radius = 112.00446
 
 [node name="Player" type="CharacterBody2D" unique_id=1769850770]
 collision_layer = 0
-collision_mask = 524291
+collision_mask = 528387
 script = ExtResource("1_4flbx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2093589252]
