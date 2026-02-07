@@ -1,38 +1,66 @@
 [gd_scene format=3 uid="uid://s4c6m68td6vx"]
 
 [ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://bo5wymk8ekwvk" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dvocrqgbuegeo" path="res://enemy/enemy_follower/enemy_follower.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://player/player.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://bwbk80mo3rkqt" path="res://helper/outside_container.tscn" id="5_7mycd"]
-[ext_resource type="PackedScene" uid="uid://v3b8aogn82hd" path="res://helper/inside_container.tscn" id="5_lquwl"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
-radius = 132.45753
+[ext_resource type="PackedScene" uid="uid://4k4t25dfi23v" path="res://enemy/enemy_shooter_basic/enemy_shooter.tscn" id="4_1bvp3"]
 
 [node name="Main" type="Node" unique_id=1267416914]
-script = ExtResource("1_h2yge")
 
 [node name="BorderWindow" parent="." unique_id=304158618 instance=ExtResource("1_0xm2m")]
 
 [node name="Window" parent="BorderWindow" index="1" unique_id=169679679]
 position = Vector2i(400, 267)
+size = Vector2i(1200, 900)
 
-[node name="Area2D" parent="BorderWindow" index="2" unique_id=913116292]
-collision_layer = 0
-collision_mask = 8193
-
-[node name="Player" parent="." unique_id=1769850770 instance=ExtResource("3_h2yge")]
+[node name="Player" parent="." unique_id=1769850770 groups=["player"] instance=ExtResource("3_h2yge")]
 position = Vector2(646, 486)
 
-[node name="Node" parent="." unique_id=641158635 instance=ExtResource("5_7mycd")]
+[node name="Enemy" type="Node" parent="." unique_id=949713376]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1778915425]
-collision_mask = 0
+[node name="EnemyShooter" parent="Enemy" unique_id=1282059791 instance=ExtResource("4_1bvp3")]
+position = Vector2(635, 636.99994)
+scale = Vector2(0.4, 0.4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=148774608]
-position = Vector2(45, 587)
-shape = SubResource("CircleShape2D_1bvp3")
+[node name="EnemyShooter2" parent="Enemy" unique_id=1007264088 instance=ExtResource("4_1bvp3")]
+position = Vector2(879, 467)
+scale = Vector2(0.4, 0.4)
 
-[node name="InsideContainer" parent="." unique_id=515590093 instance=ExtResource("5_lquwl")]
+[node name="EnemyShooter3" parent="Enemy" unique_id=1557869980 instance=ExtResource("4_1bvp3")]
+position = Vector2(1264, 618)
+scale = Vector2(0.4, 0.4)
+
+[node name="EnemyShooter4" parent="Enemy" unique_id=792235061 instance=ExtResource("4_1bvp3")]
+position = Vector2(996, 964)
+scale = Vector2(0.4, 0.4)
+
+[node name="EnemyFollower" parent="Enemy" unique_id=1973665884 instance=ExtResource("2_0xm2m")]
+position = Vector2(996, 964)
+scale = Vector2(0.4, 0.4)
+
+[node name="EnemyFollower2" parent="Enemy" unique_id=232004225 instance=ExtResource("2_0xm2m")]
+position = Vector2(996, 964)
+scale = Vector2(0.4, 0.4)
+collision_mask = 128
+
+[node name="EnemyFollower3" parent="Enemy" unique_id=1897752293 instance=ExtResource("2_0xm2m")]
+position = Vector2(996, 964)
+scale = Vector2(0.4, 0.4)
+collision_mask = 128
+
+[node name="EnemyFollower4" parent="Enemy" unique_id=2117961295 instance=ExtResource("2_0xm2m")]
+position = Vector2(996, 964)
+scale = Vector2(0.4, 0.4)
+collision_mask = 128
+
+[node name="EnemyFollower5" parent="Enemy" unique_id=984506229 instance=ExtResource("2_0xm2m")]
+position = Vector2(996, 964)
+scale = Vector2(0.4, 0.4)
+collision_mask = 128
+
+[node name="EnemyFollower6" parent="Enemy" unique_id=98407688 instance=ExtResource("2_0xm2m")]
+position = Vector2(996, 964)
+scale = Vector2(0.4, 0.4)
+collision_mask = 128
 
 [editable path="BorderWindow"]
