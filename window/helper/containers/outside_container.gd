@@ -1,19 +1,25 @@
 extends NodeBase
 
+@export var ITEM: PackedScene
+
 @onready var window: Window = $Window
 @onready var area_2d: Area2D = $Area2D
 @onready var rigid_body_2d: RigidBody2D = $RigidBody2D
-@onready var turret: Node2D = $Turret
 
+var item: ItemBase
 var parent_window : Window
 
 var last_position : Vector2i
 var velocity : Vector2i
 
 func _ready() -> void:
-	window.title = turret.name
+	item = ITEM.instantiate()
+	add_child(item)
 	
-	window.size = turret.base.get_rect().size
+	item.window = window
+	
+	window.title = item.name
+	window.size = item.size
 	# Need to find a way to set this for all windows in main
 	window.world_2d = get_window().world_2d
 	

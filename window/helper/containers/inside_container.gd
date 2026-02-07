@@ -1,15 +1,22 @@
 extends NodeBase
 
+@export var ITEM: PackedScene
+
 @onready var window: Window = $Window
 @onready var area_2d: Area2D = $Area2D
-@onready var wall: Node2D = $Wall
+
+var item: ItemBase
 
 var parent_window : Window
 
-
 func _ready() -> void:
-	window.title = wall.name
-	window.size = wall.sprite_2d.get_rect().size
+	item = ITEM.instantiate()
+	add_child(item)
+	
+	item.window = window
+	window.title = item.name
+	
+	window.size = item.size
 	
 	# Need to find a way to set this for all windows in main
 	window.world_2d = get_window().world_2d

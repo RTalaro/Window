@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bo5wymk8ekwvk" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://player/player.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://bwbk80mo3rkqt" path="res://helper/outside_container.tscn" id="5_7mycd"]
-[ext_resource type="PackedScene" uid="uid://v3b8aogn82hd" path="res://helper/inside_container.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bwbk80mo3rkqt" path="res://helper/containers/outside_container.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://v3b8aogn82hd" path="res://helper/containers/inside_container.tscn" id="5_lquwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
 radius = 132.45753
