@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://vik1m25hw20e"]
 
+[ext_resource type="Script" uid="uid://cxqhp7330q23m" path="res://helper/wall.gd" id="1_p3erc"]
+[ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="1_tcd1v"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok30d"]
+size = Vector2(128, 128)
 
 [node name="Wall" type="Node2D" unique_id=947232948]
+script = ExtResource("1_p3erc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=38201863]
+texture = ExtResource("1_tcd1v")
 
 [node name="WallCollision" type="StaticBody2D" parent="." unique_id=1585342996]
 collision_layer = 524288

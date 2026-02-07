@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends CharacterBodyBase
 
 var speed = 100
 var player_chase = false

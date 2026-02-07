@@ -11,6 +11,8 @@
 radius = 17.029387
 
 [node name="Bullet" type="CharacterBody2D" unique_id=1942248473]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_v8qja")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=779062050]
@@ -21,11 +23,15 @@ texture = ExtResource("1_v7oki")
 shape = SubResource("RectangleShape2D_46f7d")
 
 [node name="TargetCollision" type="Area2D" parent="." unique_id=1092172352]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetCollision" unique_id=1234449164]
 shape = SubResource("CircleShape2D_3h75o")
 
 [node name="DetectionRadius" type="Area2D" parent="." unique_id=315343385]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius" unique_id=1788082535]
 shape = SubResource("CircleShape2D_46f7d")
