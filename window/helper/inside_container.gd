@@ -14,7 +14,7 @@ func _ready() -> void:
 	# Need to find a way to set this for all windows in main
 	window.world_2d = get_window().world_2d
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	area_2d.position = Vector2(window.position)
 	area_2d.position += Vector2(window.size / 2)
 

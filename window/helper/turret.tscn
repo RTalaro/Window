@@ -1,14 +1,36 @@
 [gd_scene format=3 uid="uid://c3sdw3yvsrj3q"]
 
+[ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="1_2ukgn"]
+[ext_resource type="Script" uid="uid://dcx4pqrt6mhjt" path="res://helper/turret.gd" id="1_suwrj"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_lmmv2"]
+radius = 500.0
 
 [node name="Turret" type="Node2D" unique_id=2044634428]
+script = ExtResource("1_suwrj")
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1736103917]
-
-[node name="Gun" type="Sprite2D" parent="." unique_id=878878194]
+texture = ExtResource("1_2ukgn")
 
 [node name="TurretDetection" type="Area2D" parent="." unique_id=1925481858]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TurretDetection" unique_id=1172365990]
 shape = SubResource("CircleShape2D_lmmv2")
+
+[node name="PivotPoint" type="Node2D" parent="." unique_id=1884263223]
+
+[node name="Gun" type="Sprite2D" parent="PivotPoint" unique_id=878878194]
+position = Vector2(100, 0)
+scale = Vector2(1, 0.25)
+texture = ExtResource("1_2ukgn")
+
+[node name="Marker2D" type="Marker2D" parent="PivotPoint/Gun" unique_id=1536815345]
+position = Vector2(80, 0)
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=99903643]
+autostart = true
+
+[connection signal="area_entered" from="TurretDetection" to="." method="_on_turret_detection_area_entered"]
+[connection signal="area_exited" from="TurretDetection" to="." method="_on_turret_detection_area_exited"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

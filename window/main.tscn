@@ -3,7 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bo5wymk8ekwvk" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://player/player.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://v3b8aogn82hd" path="res://helper/helper_container.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bwbk80mo3rkqt" path="res://helper/outside_container.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://v3b8aogn82hd" path="res://helper/inside_container.tscn" id="5_lquwl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
+radius = 132.45753
 
 [node name="Main" type="Node" unique_id=1267416914]
 script = ExtResource("1_h2yge")
@@ -13,9 +17,22 @@ script = ExtResource("1_h2yge")
 [node name="Window" parent="BorderWindow" index="1" unique_id=169679679]
 position = Vector2i(400, 267)
 
-[node name="HelperContainer" parent="." unique_id=515590093 instance=ExtResource("5_lquwl")]
+[node name="Area2D" parent="BorderWindow" index="2" unique_id=913116292]
+collision_layer = 0
+collision_mask = 8193
 
 [node name="Player" parent="." unique_id=1769850770 instance=ExtResource("3_h2yge")]
 position = Vector2(646, 486)
+
+[node name="Node" parent="." unique_id=641158635 instance=ExtResource("5_7mycd")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1778915425]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=148774608]
+position = Vector2(45, 587)
+shape = SubResource("CircleShape2D_1bvp3")
+
+[node name="InsideContainer" parent="." unique_id=515590093 instance=ExtResource("5_lquwl")]
 
 [editable path="BorderWindow"]

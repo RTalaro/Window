@@ -5,10 +5,10 @@ extends Window
 var mouse_offset : Vector2
 var dragged : bool
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	camera_2d.position = position
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if dragged:
 		position = Vector2i(get_window().get_mouse_position() - mouse_offset) + position
 
