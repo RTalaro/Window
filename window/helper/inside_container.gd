@@ -9,7 +9,7 @@ var parent_window : Window
 
 func _ready() -> void:
 	window.title = wall.name
-	window.size = wall.sprite_2d.get_rect().size
+	window.size = wall.sprite_2d.get_rect().size + Vector2(50, 50) 
 	
 	# Need to find a way to set this for all windows in main
 	window.world_2d = get_window().world_2d

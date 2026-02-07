@@ -2,9 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bo5wymk8ekwvk" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://d1ex0tqubwf55" path="res://placeholder_assets/background.png" id="2_272bh"]
 [ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://player/player.tscn" id="3_h2yge"]
+[ext_resource type="Theme" uid="uid://cbu701eo6j6jo" path="res://placeholder_assets/Modern11/Modern11.tres" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bwbk80mo3rkqt" path="res://helper/outside_container.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://v3b8aogn82hd" path="res://helper/inside_container.tscn" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://b30tolbtony3w" path="res://placeholder_assets/images.jpg" id="6_7mycd"]
+[ext_resource type="Theme" uid="uid://bi54ign8ggomc" path="res://placeholder_assets/Classic95/Classic95.tres" id="9_kek77"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
 radius = 132.45753
@@ -12,10 +16,23 @@ radius = 132.45753
 [node name="Main" type="Node" unique_id=1267416914]
 script = ExtResource("1_h2yge")
 
+[node name="FakeBG" type="Sprite2D" parent="." unique_id=2108817680]
+visible = false
+position = Vector2(1281, 799)
+texture = ExtResource("2_272bh")
+
+[node name="Images" type="Sprite2D" parent="." unique_id=1110632098]
+position = Vector2(841, 517)
+scale = Vector2(3, 3)
+texture = ExtResource("6_7mycd")
+
 [node name="BorderWindow" parent="." unique_id=304158618 instance=ExtResource("1_0xm2m")]
 
 [node name="Window" parent="BorderWindow" index="1" unique_id=169679679]
+title = "Game"
 position = Vector2i(400, 267)
+size = Vector2i(900, 504)
+theme = ExtResource("5_5vw27")
 
 [node name="Area2D" parent="BorderWindow" index="2" unique_id=913116292]
 collision_layer = 0
@@ -26,6 +43,9 @@ position = Vector2(646, 486)
 
 [node name="Node" parent="." unique_id=641158635 instance=ExtResource("5_7mycd")]
 
+[node name="Window" parent="Node" index="0" unique_id=1273966553]
+theme = ExtResource("9_kek77")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1778915425]
 collision_mask = 0
 
@@ -35,4 +55,10 @@ shape = SubResource("CircleShape2D_1bvp3")
 
 [node name="InsideContainer" parent="." unique_id=515590093 instance=ExtResource("5_lquwl")]
 
+[node name="Window" parent="InsideContainer" index="0" unique_id=790258661]
+theme = ExtResource("9_kek77")
+
 [editable path="BorderWindow"]
+[editable path="Node"]
+[editable path="InsideContainer"]
+[editable path="InsideContainer/Wall"]

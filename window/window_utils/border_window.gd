@@ -16,6 +16,7 @@ extends NodeBase
 var window_elements = []
 
 func _ready() -> void:
+	_on_window_size_changed()
 	$Window.world_2d = get_window().world_2d
 
 func _process(_delta: float) -> void:
