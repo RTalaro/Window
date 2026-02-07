@@ -9,16 +9,23 @@ var chasing: bool = false
 var wander_dir: Vector2 = Vector2.ZERO
 var wander_time: float = 0.0
 
-var shoot_distance: float = 222.0
+var shoot_distance: float = 200.0
+var distance_buffer: float = 10.0
 
 
 func _physics_process(delta):
 	if chasing and player:
-		var dir = (player.global_position - global_position).normalized()
-		if global_position.distance_to(player.global_position) < shoot_distance:
-			velocity = -(dir * speed)
-		else:
+		var to_player = player.global_position - global_position
+		var dist = to_player.length()
+		var dir = to_player.normalized()
+
+		if dist < shoot_distance - distance_buffer:
+			velocity = -dir * speed
+		elif dist > shoot_distance + distance_buffer:
 			velocity = dir * speed
+		else:
+			var tangent = Vector2(-dir.y, dir.x)
+			velocity = tangent * speed
 	else:
 		wander(delta)
 
