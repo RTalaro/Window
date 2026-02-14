@@ -1,21 +1,23 @@
 [gd_scene format=3 uid="uid://bwbk80mo3rkqt"]
 
-[ext_resource type="Script" uid="uid://dsk7fixvr63w2" path="res://helper/outside_container.gd" id="1_2ni0d"]
+[ext_resource type="Script" uid="uid://dsk7fixvr63w2" path="res://helper/containers/outside_container.gd" id="1_2ni0d"]
 [ext_resource type="Script" uid="uid://e13twguklq7e" path="res://helper/window.gd" id="1_tf81c"]
-[ext_resource type="PackedScene" uid="uid://c3sdw3yvsrj3q" path="res://helper/turret.tscn" id="3_rsan4"]
+[ext_resource type="PackedScene" uid="uid://vik1m25hw20e" path="res://helper/wall.tscn" id="2_rsan4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ni0d"]
 size = Vector2(100, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsan4"]
-size = Vector2(100, 100)
+size = Vector2(150, 100)
 
 [node name="OutsideContainer" type="Node" unique_id=641158635]
 script = ExtResource("1_2ni0d")
+ITEM = ExtResource("2_rsan4")
 
 [node name="Window" type="Window" parent="." unique_id=1273966553]
 oversampling_override = 1.0
 position = Vector2i(0, 36)
+unresizable = true
 script = ExtResource("1_tf81c")
 
 [node name="Camera2D" type="Camera2D" parent="Window" unique_id=1533603737]
@@ -29,13 +31,11 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1668272826]
 shape = SubResource("RectangleShape2D_2ni0d")
 
-[node name="Turret" parent="." unique_id=2044634428 node_paths=PackedStringArray("window") instance=ExtResource("3_rsan4")]
-window = NodePath("../Window")
-
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=158308477]
 position = Vector2(50, 50)
 collision_layer = 0
 collision_mask = 4096
+gravity_scale = 0.0
 lock_rotation = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1766288044]

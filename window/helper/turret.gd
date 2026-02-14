@@ -1,22 +1,21 @@
-extends Node2D
+extends ItemBase
 
 @onready var pivot_point: Node2D = $PivotPoint
 @onready var bullet_spawn: Marker2D = $PivotPoint/Gun/Marker2D
-@onready var sprite_2d : Sprite2D = $Base
 
 @export var target : CharacterBody2D
+@export var window : Window
 
 const BULLET = preload("res://player/weapons/bullet.tscn")
 
-@export var window : Window
-
-@onready var base: Sprite2D = $Base
+func _ready() -> void:
+	size = Vector2i(128, 128)
 
 func _process(_delta):
 	if (target):
 		pivot_point.look_at(target.position)
 	if (window):
-		position = window.position + Vector2i(base.get_rect().size / 2)
+		position = window.position + Vector2i(size / 2)
 	
 func shoot() -> void:
 	var new_bullet = BULLET.instantiate()

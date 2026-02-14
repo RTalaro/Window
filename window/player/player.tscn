@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dkl7u8o0oeghu" path="res://player/player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://64lb57wkfj3w" path="res://player/placeholder_player.png" id="2_rkbax"]
+[ext_resource type="PackedScene" uid="uid://dn4m6kj4qd78a" path="res://player/weapons/pistol.tscn" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://bvugkgq1wlp7x" path="res://player/weapon_handler.gd" id="3_yw30f"]
+[ext_resource type="PackedScene" uid="uid://brfopi164evid" path="res://player/weapons/smg.tscn" id="5_qjkh3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g1dw6"]
 atlas = ExtResource("2_rkbax")
@@ -48,3 +51,8 @@ shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionRadius" unique_id=1979935630]
 shape = SubResource("CircleShape2D_rkbax")
+
+[node name="WeaponHandler" type="Node2D" parent="." unique_id=1789350146]
+script = ExtResource("3_yw30f")
+slot_one = ExtResource("3_g1dw6")
+slot_two = ExtResource("5_qjkh3")

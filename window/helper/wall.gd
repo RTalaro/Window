@@ -1,9 +1,11 @@
-extends Node2D
+extends ItemBase
 
 @export var window : Window
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+func _ready() -> void:
+	size = sprite_2d.get_rect().size
 
 func _process(delta: float) -> void:
 	if (window):
