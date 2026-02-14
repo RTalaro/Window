@@ -31,7 +31,6 @@ size = Vector2(128, 128)
 radius = 112.00446
 
 [node name="Player" type="CharacterBody2D" unique_id=1769850770]
-collision_layer = 0
 collision_mask = 528387
 script = ExtResource("1_4flbx")
 
