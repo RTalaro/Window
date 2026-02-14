@@ -4,9 +4,15 @@
 [ext_resource type="Script" uid="uid://yj31lcpdnn7i" path="res://player/weapons/gun.gd" id="2_dk5gl"]
 
 [node name="Gun" type="Sprite2D" unique_id=390690923]
+modulate = Color(0, 0, 1, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_vk1bi")
 script = ExtResource("2_dk5gl")
 
 [node name="BulletSpawn" type="Marker2D" parent="." unique_id=1654979440]
 position = Vector2(40, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=354943302]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

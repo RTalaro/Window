@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bo5wymk8ekwvk" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://player/player.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bwbk80mo3rkqt" path="res://helper/containers/outside_container.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://vik1m25hw20e" path="res://helper/wall.tscn" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://v3b8aogn82hd" path="res://helper/containers/inside_container.tscn" id="5_lquwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
@@ -24,8 +25,6 @@ collision_mask = 8193
 [node name="Player" parent="." unique_id=1769850770 instance=ExtResource("3_h2yge")]
 position = Vector2(646, 486)
 
-[node name="Node" parent="." unique_id=641158635 instance=ExtResource("5_7mycd")]
-
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1778915425]
 collision_mask = 0
 
@@ -34,5 +33,8 @@ position = Vector2(45, 587)
 shape = SubResource("CircleShape2D_1bvp3")
 
 [node name="InsideContainer" parent="." unique_id=515590093 instance=ExtResource("5_lquwl")]
+ITEM = ExtResource("5_272bh")
+
+[node name="OutsideContainer" parent="." unique_id=641158635 instance=ExtResource("5_7mycd")]
 
 [editable path="BorderWindow"]

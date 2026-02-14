@@ -23,8 +23,8 @@ texture = ExtResource("1_v7oki")
 shape = SubResource("RectangleShape2D_46f7d")
 
 [node name="TargetCollision" type="Area2D" parent="." unique_id=1092172352]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 524288
+collision_mask = 524288
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetCollision" unique_id=1234449164]
 shape = SubResource("CircleShape2D_3h75o")
@@ -35,3 +35,5 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius" unique_id=1788082535]
 shape = SubResource("CircleShape2D_46f7d")
+
+[connection signal="body_entered" from="TargetCollision" to="." method="_on_target_collision_body_entered"]
