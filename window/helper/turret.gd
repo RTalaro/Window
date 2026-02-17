@@ -6,7 +6,7 @@ extends ItemBase
 @export var target : CharacterBody2D
 @export var window : Window
 
-const BULLET = preload("res://player/weapons/bullet.tscn")
+const BULLET = preload("res://scripts/player/weapons/bullet.tscn")
 
 func _ready() -> void:
 	size = Vector2i(128, 128)
@@ -33,6 +33,9 @@ func _on_attack_cooldown_timeout() -> void:
 func _on_turret_detection_area_entered(area: Area2D) -> void:
 	target = area.get_parent()
 
-
+# quick fix added for hifi video
 func _on_turret_detection_area_exited(_area: Area2D) -> void:
 	target = null
+	$TurretDetection.monitoring = false
+	$TurretDetection.monitoring = true
+	

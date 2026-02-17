@@ -1,9 +1,31 @@
 [gd_scene format=3 uid="uid://dvocrqgbuegeo"]
 
 [ext_resource type="Script" uid="uid://dgn360qpnsiuu" path="res://scripts/enemy/enemy_follower/enemy_follower.gd" id="1_ofsxj"]
-[ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="2_ppra6"]
+[ext_resource type="Texture2D" uid="uid://b0gt0hhxwdxd" path="res://sprites_TEMP/enemy_bat_walk.png" id="2_5b2yi"]
 [ext_resource type="PackedScene" uid="uid://gsgikxdbhgvg" path="res://scripts/health_component.tscn" id="3_5b2yi"]
 [ext_resource type="PackedScene" uid="uid://bldr7hxtauweo" path="res://scripts/hitbox_component.tscn" id="4_586ek"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_586ek"]
+atlas = ExtResource("2_5b2yi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bckaq"]
+atlas = ExtResource("2_5b2yi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_enquv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_586ek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bckaq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
 radius = 1115.0112
@@ -19,9 +41,10 @@ collision_layer = 128
 collision_mask = 4224
 script = ExtResource("1_ofsxj")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=829575813]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=92805522]
 modulate = Color(0.89411765, 0.101960786, 0.0627451, 1)
-texture = ExtResource("2_ppra6")
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_enquv")
 
 [node name="EnemyPlayerDetection" type="Area2D" parent="." unique_id=1077767680]
 collision_layer = 0

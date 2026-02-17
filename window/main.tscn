@@ -2,12 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://0cn5celydxuo" path="res://scripts/enemy/enemy_charger/enemy_charger.tscn" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://scripts/player/player.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dvocrqgbuegeo" path="res://scripts/enemy/enemy_follower/enemy_follower.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://5sgxumt6fmhr" path="res://scripts/enemy/enemy_shooter_basic/enemy_shooter_basic.tscn" id="5_7mycd"]
-[ext_resource type="PackedScene" uid="uid://4k4t25dfi23v" path="res://scripts/enemy/enemy_shooter_orbit/enemy_shooter_orbit.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://v3b8aogn82hd" path="res://helper/containers/inside_container.tscn" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://c4mwxc4sktph8" path="res://sprites_TEMP/bg.png" id="9_kek77"]
 
 [node name="Main" type="Node" unique_id=1267416914]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=565665443]
+position = Vector2(601, 473.5)
+scale = Vector2(0.29097965, 0.44749522)
+texture = ExtResource("9_kek77")
 
 [node name="BorderWindow" parent="." unique_id=304158618 instance=ExtResource("1_0xm2m")]
 
@@ -15,25 +20,20 @@
 position = Vector2i(0, 36)
 size = Vector2i(1200, 900)
 
-[node name="Player" parent="." unique_id=1769850770 groups=["player"] instance=ExtResource("3_h2yge")]
-position = Vector2(646, 486)
-
 [node name="Enemy" type="Node" parent="." unique_id=949713376]
 
 [node name="EnemyCharger" parent="Enemy" unique_id=1002091593 instance=ExtResource("3_1bvp3")]
 position = Vector2(772, 357)
 scale = Vector2(0.5, 0.5)
 
-[node name="Enemy2" parent="Enemy" unique_id=1282059791 instance=ExtResource("4_1bvp3")]
+[node name="EnemyFollower" parent="Enemy" unique_id=1282059791 instance=ExtResource("4_1bvp3")]
 position = Vector2(455.99997, 494.99997)
 scale = Vector2(0.4, 0.4)
 
-[node name="Enemy" parent="Enemy" unique_id=263863929 instance=ExtResource("5_7mycd")]
+[node name="EnemyBasic" parent="Enemy" unique_id=263863929 instance=ExtResource("5_7mycd")]
 position = Vector2(455.99997, 494.99997)
 scale = Vector2(0.4, 0.4)
 
-[node name="Enemy3" parent="Enemy" unique_id=622904639 instance=ExtResource("6_272bh")]
-position = Vector2(455.99997, 494.99997)
-scale = Vector2(0.4, 0.4)
+[node name="InsideContainer" parent="." unique_id=515590093 instance=ExtResource("8_5vw27")]
 
 [editable path="BorderWindow"]

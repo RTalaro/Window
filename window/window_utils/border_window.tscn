@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccexg66yj5j51"]
 
 [ext_resource type="Script" uid="uid://b47gy0i3grbxv" path="res://window_utils/border_window.gd" id="1_4daeo"]
+[ext_resource type="Theme" uid="uid://cbu701eo6j6jo" path="res://themes/Modern11/Modern11.tres" id="2_mkn7c"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_f0d0f"]
 b = Vector2(500, 0)
@@ -54,8 +55,9 @@ shape = SubResource("SegmentShape2D_r5bmm")
 
 [node name="Window" type="Window" parent="." unique_id=169679679]
 oversampling_override = 1.0
-position = Vector2i(400, 400)
+position = Vector2i(326, 74)
 size = Vector2i(500, 500)
+theme = ExtResource("2_mkn7c")
 script = SubResource("GDScript_7bnpc")
 
 [node name="Camera2D" type="Camera2D" parent="Window" unique_id=979188739]

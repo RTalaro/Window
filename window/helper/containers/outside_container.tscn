@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dsk7fixvr63w2" path="res://helper/containers/outside_container.gd" id="1_2ni0d"]
 [ext_resource type="Script" uid="uid://e13twguklq7e" path="res://helper/window.gd" id="1_tf81c"]
 [ext_resource type="PackedScene" uid="uid://vik1m25hw20e" path="res://helper/wall.tscn" id="2_rsan4"]
+[ext_resource type="Theme" uid="uid://cbu701eo6j6jo" path="res://themes/Modern11/Modern11.tres" id="3_3vw8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ni0d"]
 size = Vector2(100, 100)
@@ -18,6 +19,7 @@ ITEM = ExtResource("2_rsan4")
 oversampling_override = 1.0
 position = Vector2i(0, 36)
 unresizable = true
+theme = ExtResource("3_3vw8i")
 script = ExtResource("1_tf81c")
 
 [node name="Camera2D" type="Camera2D" parent="Window" unique_id=1533603737]
