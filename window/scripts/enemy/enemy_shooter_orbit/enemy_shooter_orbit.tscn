@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://5sgxumt6fmhr"]
+[gd_scene format=3 uid="uid://4k4t25dfi23v"]
 
-[ext_resource type="Script" uid="uid://clqg70cildjo7" path="res://enemy/enemy_shooter_basic/enemy_shooter_basic.gd" id="1_8vb2n"]
+[ext_resource type="Script" uid="uid://c436cqwueupjs" path="res://scripts/enemy/enemy_shooter_orbit/enemy_shooter_orbit.gd" id="1_fis7m"]
 [ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="2_hqjic"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
-radius = 1115.0112
+radius = 1483.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
 size = Vector2(100, 100)
@@ -15,10 +15,10 @@ size = Vector2(128, 128)
 [node name="Enemy" type="CharacterBody2D" unique_id=1282059791]
 collision_layer = 128
 collision_mask = 4224
-script = ExtResource("1_8vb2n")
+script = ExtResource("1_fis7m")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=829575813]
-modulate = Color(0.09341254, 0.5283375, 0.69519633, 1)
+modulate = Color(0.24567115, 0.5712962, 0, 1)
 texture = ExtResource("2_hqjic")
 
 [node name="EnemyPlayerDetection" type="Area2D" parent="." unique_id=1077767680]

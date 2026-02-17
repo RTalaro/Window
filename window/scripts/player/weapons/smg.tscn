@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://brfopi164evid"]
 
 [ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="1_qsn2p"]
-[ext_resource type="Script" uid="uid://yj31lcpdnn7i" path="res://player/weapons/gun.gd" id="2_k6g8t"]
+[ext_resource type="Script" uid="uid://yj31lcpdnn7i" path="res://scripts/player/weapons/gun.gd" id="2_k6g8t"]
 
 [node name="Gun" type="Sprite2D" unique_id=390690923]
 scale = Vector2(0.5, 0.5)

@@ -5,7 +5,7 @@ extends Sprite2D
 
 var can_shoot = true
 
-const BULLET = preload("res://player/weapons/bullet.tscn")
+const BULLET = preload("res://scripts/player/weapons/bullet.tscn")
 
 @onready var bullet_spawn: Marker2D = $BulletSpawn
 @onready var timer: Timer = $Timer
