@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://clqg70cildjo7" path="res://scripts/enemy/enemy_shooter_basic/enemy_shooter_basic.gd" id="1_8vb2n"]
 [ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="2_hqjic"]
+[ext_resource type="PackedScene" uid="uid://gsgikxdbhgvg" path="res://scripts/health_component.tscn" id="3_d4h70"]
+[ext_resource type="PackedScene" uid="uid://bldr7hxtauweo" path="res://scripts/hitbox_component.tscn" id="4_wn5fq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
 radius = 1115.0112
@@ -31,11 +33,13 @@ shape = SubResource("CircleShape2D_4gyqm")
 shape = SubResource("RectangleShape2D_qi2p4")
 debug_color = Color(0.654902, 0.5176471, 0, 0.61960787)
 
-[node name="EnemyHitbox" type="Area2D" parent="." unique_id=2084530283]
-collision_layer = 64
-collision_mask = 0
+[node name="HealthComponent" parent="." unique_id=1166189687 instance=ExtResource("3_d4h70")]
+MAX_HEALTH = 20.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitbox" unique_id=1061506948]
+[node name="HitboxComponent" parent="." unique_id=706822167 node_paths=PackedStringArray("health_component") instance=ExtResource("4_wn5fq")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1061506948]
 shape = SubResource("RectangleShape2D_ofsxj")
 
 [connection signal="body_entered" from="EnemyPlayerDetection" to="." method="_on_detection_area_body_entered"]

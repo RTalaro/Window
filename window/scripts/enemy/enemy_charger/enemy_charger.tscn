@@ -34,9 +34,10 @@ shape = SubResource("RectangleShape2D_qi2p4")
 debug_color = Color(0.654902, 0.5176471, 0, 0.61960787)
 
 [node name="HealthComponent" parent="." unique_id=1166189687 instance=ExtResource("3_ko3tc")]
+MAX_HEALTH = 50.0
 
-[node name="HitboxComponent" parent="." unique_id=706822167 instance=ExtResource("4_ir1ur")]
-collision_layer = 64
+[node name="HitboxComponent" parent="." unique_id=706822167 node_paths=PackedStringArray("health_component") instance=ExtResource("4_ir1ur")]
+health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1061506948]
 shape = SubResource("RectangleShape2D_ofsxj")
