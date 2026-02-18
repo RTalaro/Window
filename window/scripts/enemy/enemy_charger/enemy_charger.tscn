@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://0cn5celydxuo"]
 
 [ext_resource type="Script" uid="uid://byay2uuxvmcrx" path="res://scripts/enemy/enemy_charger/enemy_charger.gd" id="1_ricjt"]
-[ext_resource type="Texture2D" uid="uid://d1vkasw5ac3c1" path="res://sprites_TEMP/enemy_slime_walk.png" id="2_ko3tc"]
+[ext_resource type="Texture2D" uid="uid://d1vkasw5ac3c1" path="res://assets/art/enemy_slime_walk.png" id="2_ko3tc"]
 [ext_resource type="PackedScene" uid="uid://gsgikxdbhgvg" path="res://scripts/health_component.tscn" id="3_ko3tc"]
 [ext_resource type="PackedScene" uid="uid://bldr7hxtauweo" path="res://scripts/hitbox_component.tscn" id="4_ir1ur"]
 

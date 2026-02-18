@@ -34,9 +34,9 @@ func _physics_process(delta):
 				cooldown_timer = charge_cooldown
 
 		else:
-			var to_player = player.global_position - global_position
-			var dist = to_player.length()
-			var dir = to_player.normalized()
+			var to_player: Vector2 = player.global_position - global_position
+			var dist: float = to_player.length()
+			var dir: Vector2 = to_player.normalized()
 
 			velocity = dir * speed
 
@@ -52,21 +52,18 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-# WANDER
 func wander(delta):
 	wander_time -= delta
 	if wander_time <= 0:
 		wander_time = randf_range(1.0, 2.5)
 		wander_dir = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
 	velocity = wander_dir * wander_speed
-	
 
-# DETECTION
+
 func _on_detection_area_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
 		chasing = true
-
 
 func _on_detection_area_body_exited(body):
 	if body == player:

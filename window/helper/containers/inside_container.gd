@@ -2,12 +2,13 @@ extends NodeBase
 
 @export var ITEM: PackedScene
 
+var item: ItemBase
+
+var parent_window: Window
+
 @onready var window: Window = $Window
 @onready var area_2d: Area2D = $Area2D
 
-var item: ItemBase
-
-var parent_window : Window
 
 func _ready() -> void:
 	item = ITEM.instantiate()
@@ -23,6 +24,7 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	area_2d.position = Vector2(window.position)
+	@warning_ignore("integer_division")
 	area_2d.position += Vector2(window.size / 2)
 
 func enter_window() -> void:

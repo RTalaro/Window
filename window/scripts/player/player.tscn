@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6wc2f4qka80l"]
 
 [ext_resource type="Script" uid="uid://dkl7u8o0oeghu" path="res://scripts/player/player.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://c4385xaoa46du" path="res://sprites_TEMP/player_idle.png" id="2_dolh7"]
+[ext_resource type="Texture2D" uid="uid://c4385xaoa46du" path="res://assets/art/player_idle.png" id="2_dolh7"]
 [ext_resource type="PackedScene" uid="uid://dn4m6kj4qd78a" path="res://scripts/player/weapons/pistol.tscn" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://bvugkgq1wlp7x" path="res://scripts/player/weapon_handler.gd" id="3_yw30f"]
 [ext_resource type="PackedScene" uid="uid://brfopi164evid" path="res://scripts/player/weapons/smg.tscn" id="5_qjkh3"]

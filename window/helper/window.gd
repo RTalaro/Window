@@ -1,9 +1,9 @@
 extends Window
 
-@onready var camera_2d: Camera2D = $Camera2D
+var mouse_offset: Vector2
+var dragged: bool
 
-var mouse_offset : Vector2
-var dragged : bool
+@onready var camera_2d: Camera2D = $Camera2D
 
 func _process(_delta: float) -> void:
 	camera_2d.position = position
@@ -12,7 +12,7 @@ func _physics_process(_delta: float) -> void:
 	if dragged:
 		position = Vector2i(get_window().get_mouse_position() - mouse_offset) + position
 
-func _input(event : InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("Left Click"):
 			mouse_offset = event.position
