@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://6wc2f4qka80l"]
+
+[ext_resource type="Script" uid="uid://dkl7u8o0oeghu" path="res://scripts/player/player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://c4385xaoa46du" path="res://sprites_TEMP/player_idle.png" id="2_dolh7"]
+[ext_resource type="PackedScene" uid="uid://dn4m6kj4qd78a" path="res://scripts/player/weapons/pistol.tscn" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://bvugkgq1wlp7x" path="res://scripts/player/weapon_handler.gd" id="3_yw30f"]
+[ext_resource type="PackedScene" uid="uid://brfopi164evid" path="res://scripts/player/weapons/smg.tscn" id="5_qjkh3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yw30f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dolh7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
+radius = 112.00446
+
+[node name="Player" type="CharacterBody2D" unique_id=1769850770]
+collision_mask = 528387
+script = ExtResource("1_4flbx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2093589252]
+sprite_frames = SubResource("SpriteFrames_yw30f")
+animation = &"idle"
+
+[node name="PlayerHitbox" type="Area2D" parent="." unique_id=2105686471]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox" unique_id=2047260701]
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="PlayerWallCollision" type="CollisionShape2D" parent="." unique_id=623934303]
+shape = SubResource("RectangleShape2D_i3pqv")
+
+[node name="PlayerDetectionRadius" type="Area2D" parent="." unique_id=1975407611]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionRadius" unique_id=1979935630]
+shape = SubResource("CircleShape2D_rkbax")
+
+[node name="WeaponHandler" type="Node2D" parent="." unique_id=1789350146]
+script = ExtResource("3_yw30f")
+slot_one = ExtResource("3_g1dw6")
+slot_two = ExtResource("5_qjkh3")
