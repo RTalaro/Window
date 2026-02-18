@@ -24,7 +24,7 @@ func despawn() -> void:
 
 
 func _on_target_collision_body_entered(_body: Node2D) -> void:
-	if (piercing <= 0):
+	if piercing <= 0:
 		queue_free()
 	piercing -= 1
 

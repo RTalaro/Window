@@ -1,4 +1,4 @@
 class_name ItemBase
 extends Node2D
 
-var size : Vector2i
+var size: Vector2i

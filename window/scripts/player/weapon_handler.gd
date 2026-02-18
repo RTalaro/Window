@@ -6,6 +6,7 @@ extends Node2D
 var current_weapon: Sprite2D
 var alt_weapon: Sprite2D
 
+
 func _ready() -> void:
 	var weapon_one: Node = slot_one.instantiate()
 	current_weapon = weapon_one
@@ -25,6 +26,7 @@ func _input(event: InputEvent) -> void:
 		swap_weapon()
 	if event.is_action_pressed("Slot2"):
 		swap_weapon()
+
 
 func swap_weapon() -> void:
 	var temp: Sprite2D = current_weapon

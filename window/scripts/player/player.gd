@@ -2,7 +2,11 @@ extends CharacterBodyBase
 
 var window: Window
 
-@onready var sprite = $AnimatedSprite2D
+var sprite_action: String = "idle"
+var sprite_direction: String = "front"
+var animation_name: String
+
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	window = get_window()
@@ -15,9 +19,27 @@ func _physics_process(_delta: float) -> void:
 	#position.y = clamp(position.y, 0, window.size.y)
 	
 func get_input() -> void:
-	var input_direction = Input.get_vector("Left", "Right", "Up", "Down")
-	if input_direction.x == -1:
-		sprite.flip_h = true
-	if input_direction.x == 1:
-		sprite.flip_h = false
+	var input_direction: Vector2 = Input.get_vector("Left", "Right", "Up", "Down")
+	if input_direction:
+		sprite_action = "walk"
+	else:
+		sprite_action = "idle"
+	var horizontal_dir = Input.get_axis("Left", "Right")
+	var vertical_dir = Input.get_axis("Up", "Down")
+	match horizontal_dir:
+		-1.0:
+			sprite.flip_h = true
+			sprite_direction = "side"
+		1.0:
+			sprite.flip_h = false
+			sprite_direction = "side"
+		0.0:
+			match vertical_dir:
+				-1.0:
+					sprite_direction = "back"
+				1.0:
+					sprite_direction = "front"
+		
+	animation_name = sprite_action + "_" + sprite_direction
+	sprite.play(animation_name)
 	velocity = input_direction * 500

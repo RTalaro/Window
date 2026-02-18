@@ -25,19 +25,18 @@ func _process(_delta: float) -> void:
 	area_2d.position = Vector2(window.position) + Vector2(window.size / 2)
 
 func _on_window_size_changed() -> void:
-	if (top):
+	if top:
 		top.shape.set_b(Vector2i(window.size.x, 0))
-	if (down):
+	if down:
 		down.shape.set_a(Vector2i(0, window.size.y))
 		down.shape.set_b(Vector2i(window.size.x, window.size.y))
-	if (left):
+	if left:
 		left.shape.set_b(Vector2i(0, window.size.y))
-	if (right):
+	if right:
 		right.shape.set_a(Vector2i(window.size.x, 0))
 		right.shape.set_b(Vector2i(window.size.x, window.size.y))
-	if (collision_shape_2d):
+	if collision_shape_2d:
 		collision_shape_2d.shape.size = Vector2i(window.size.x, window.size.y)
-		#collision_shape_2d.shape.get_rect().size = Vector2i(window.size.x, window.size.y)
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

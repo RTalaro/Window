@@ -21,12 +21,14 @@ func _process(_delta):
 		@warning_ignore("integer_division")
 		position = window.position + Vector2i(size / 2)
 
+
 func shoot() -> void:
 	var new_bullet: Node = BULLET.instantiate()
 	new_bullet.position = bullet_spawn.global_position
 	new_bullet.look_at(target.position)
 	new_bullet.target_direction = (target.position - bullet_spawn.global_position).normalized()
 	get_tree().root.add_child(new_bullet)
+
 
 func _on_attack_cooldown_timeout() -> void:
 	if target:
@@ -37,8 +39,7 @@ func _on_turret_detection_area_entered(area: Area2D) -> void:
 
 func _on_turret_detection_area_exited(_area: Area2D) -> void:
 	target = null
-	
+
 	# quick fix to faulty turret detection
 	turret_detection.set_deferred("monitoring", false)
 	turret_detection.set_deferred("monitoring", true)
-	

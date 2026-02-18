@@ -19,9 +19,9 @@ func _physics_process(delta):
 		var dist: float = to_player.length()
 		var dir: Vector2 = to_player.normalized()
 
-		if dist < shoot_distance - distance_buffer:
+		if dist < (shoot_distance - distance_buffer):
 			velocity = -dir * speed
-		elif dist > shoot_distance + distance_buffer:
+		elif dist > (shoot_distance + distance_buffer):
 			velocity = dir * speed
 		else:
 			velocity = Vector2(0,0)
