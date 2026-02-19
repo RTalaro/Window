@@ -20,6 +20,10 @@ func _physics_process(_delta: float) -> void:
 	
 func get_input() -> void:
 	var input_direction: Vector2 = Input.get_vector("Left", "Right", "Up", "Down")
+	update_animation(input_direction)
+	velocity = input_direction * 500
+
+func update_animation(input_direction: Vector2) -> void:
 	if input_direction:
 		sprite_action = "walk"
 	else:
@@ -39,7 +43,5 @@ func get_input() -> void:
 					sprite_direction = "back"
 				1.0:
 					sprite_direction = "front"
-		
 	animation_name = sprite_action + "_" + sprite_direction
 	sprite.play(animation_name)
-	velocity = input_direction * 500
