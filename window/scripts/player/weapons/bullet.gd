@@ -23,12 +23,10 @@ func despawn() -> void:
 	queue_free()
 
 
-func _on_target_collision_body_entered(_body: Node2D) -> void:
+func _on_target_collision_area_entered(area):
 	if piercing <= 0:
 		queue_free()
 	piercing -= 1
-
-func _on_target_collision_area_entered(area):
 	if area is HitboxComponent:
 		var hitbox: HitboxComponent = area
 		
