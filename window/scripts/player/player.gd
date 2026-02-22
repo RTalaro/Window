@@ -6,24 +6,33 @@ var sprite_action: String = "idle"
 var sprite_direction: String = "front"
 var animation_name: String
 
-@export var speed: float = 400
+@export var MAX_SPEED: float = 400.0
+@export var ACCELERATION: float = 50.0
+@export var FRICTION: float = 25.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	window = get_window()
 
-func _physics_process(_delta: float) -> void:
-	get_input()
+func _physics_process(delta: float) -> void:
+	get_input(delta)
 	move_and_slide() # If using move_and_slide, collisions will be with static bodies
 
 	#position.x = clamp(position.x, 0, window.size.x)
 	#position.y = clamp(position.y, 0, window.size.y)
 	
-func get_input() -> void:
-	var input_direction: Vector2 = Input.get_vector("Left", "Right", "Up", "Down")
+func get_input(delta: float) -> void:
+	var input_direction: Vector2 = Vector2(Input.get_action_strength("Right") - Input.get_action_strength("Left"),
+	Input.get_action_strength("Down") - Input.get_action_strength("Up")).normalized()
+	
+	var velocity_weight_x: float = 1.0 - exp( -(ACCELERATION if input_direction.x else FRICTION) * delta)
+	velocity.x = lerp(velocity.x, input_direction.x * MAX_SPEED, velocity_weight_x)
+	
+	var velocity_weight_y: float = 1.0 - exp( -(ACCELERATION if input_direction.y else FRICTION) * delta)
+	velocity.y = lerp(velocity.y, input_direction.y * MAX_SPEED, velocity_weight_y)
+	
 	update_animation(input_direction)
-	velocity = input_direction * speed
 
 func update_animation(input_direction: Vector2) -> void:
 	if input_direction:

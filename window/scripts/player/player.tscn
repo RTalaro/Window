@@ -567,7 +567,6 @@ animation = &"idle_side"
 frame_progress = 0.83079743
 
 [node name="PlayerHitbox" type="Area2D" parent="." unique_id=2105686471]
-visible = false
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox" unique_id=2047260701]
@@ -575,18 +574,15 @@ position = Vector2(6, 2.5)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="PlayerWallCollision" type="CollisionShape2D" parent="." unique_id=623934303]
-visible = false
 position = Vector2(6, 2.5)
 shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="PlayerDetectionRadius" type="Area2D" parent="." unique_id=1975407611]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionRadius" unique_id=1979935630]
 shape = SubResource("CircleShape2D_rkbax")
 
 [node name="WeaponHandler" type="Node2D" parent="." unique_id=1789350146]
-visible = false
 script = ExtResource("3_yw30f")
 slot_one = ExtResource("3_g1dw6")
 slot_two = ExtResource("5_qjkh3")
