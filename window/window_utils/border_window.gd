@@ -9,7 +9,7 @@ extends NodeBase
 var window_elements = []
 
 func _ready() -> void:
-	$Window.world_2d = get_window().world_2d
+	window.world_2d = get_window().world_2d
 	_on_window_size_changed()
 
 func _process(_delta: float) -> void:

@@ -21,7 +21,7 @@ func _physics_process(_delta: float) -> void:
 func get_input() -> void:
 	var input_direction: Vector2 = Input.get_vector("Left", "Right", "Up", "Down")
 	update_animation(input_direction)
-	velocity = input_direction * 500
+	velocity = input_direction * 200
 
 func update_animation(input_direction: Vector2) -> void:
 	if input_direction:
@@ -32,6 +32,7 @@ func update_animation(input_direction: Vector2) -> void:
 	var vertical_dir = Input.get_axis("Up", "Down")
 	match horizontal_dir:
 		-1.0:
+			# True = facing left
 			sprite.flip_h = true
 			sprite_direction = "side"
 		1.0:

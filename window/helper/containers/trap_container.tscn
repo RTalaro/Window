@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://6ndu28as2kbl"]
+
+[ext_resource type="Script" uid="uid://87yie2kicyqy" path="res://helper/containers/trap_container.gd" id="1_qob4x"]
+[ext_resource type="Theme" uid="uid://cbu701eo6j6jo" path="res://themes/Modern11/Modern11.tres" id="2_4ictj"]
+
+[sub_resource type="GDScript" id="GDScript_7bnpc"]
+script/source = "extends Window
+
+@onready var camera_2d: Camera2D = $Camera2D
+
+func _ready() -> void:
+	transient = true
+	close_requested.connect(queue_free)
+	
+func _process(_delta: float) -> void:
+	camera_2d.position = position
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lytty"]
+size = Vector2(500, 500)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qob4x"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nbiyc"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4ictj"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_12hfx"]
+
+[node name="TrapContainer" type="Node" unique_id=304158618]
+script = ExtResource("1_qob4x")
+
+[node name="Window" type="Window" parent="." unique_id=169679679]
+oversampling_override = 1.0
+position = Vector2i(0, 28)
+theme = ExtResource("2_4ictj")
+script = SubResource("GDScript_7bnpc")
+
+[node name="Camera2D" type="Camera2D" parent="Window" unique_id=979188739]
+anchor_mode = 0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=913116292]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=980279914]
+shape = SubResource("RectangleShape2D_lytty")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1345058572]
+collision_layer = 128
+collision_mask = 0
+
+[node name="Top" type="CollisionShape2D" parent="StaticBody2D" unique_id=1042295471]
+shape = SubResource("SegmentShape2D_qob4x")
+
+[node name="Down" type="CollisionShape2D" parent="StaticBody2D" unique_id=337080232]
+shape = SubResource("SegmentShape2D_nbiyc")
+
+[node name="Left" type="CollisionShape2D" parent="StaticBody2D" unique_id=547911019]
+shape = SubResource("SegmentShape2D_4ictj")
+
+[node name="Right" type="CollisionShape2D" parent="StaticBody2D" unique_id=463211595]
+shape = SubResource("SegmentShape2D_12hfx")
+
+[connection signal="size_changed" from="Window" to="." method="_on_window_size_changed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
