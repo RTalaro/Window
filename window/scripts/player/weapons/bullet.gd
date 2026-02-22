@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var target_direction: Vector2 = Vector2(1, 0)
 
 var attack_damage: float = 10.0
-var knockback_force: float = 100.0
+var knockback_force: float = 150.0
 var stun_time: float = 10.0
 
 
@@ -32,7 +32,9 @@ func _on_target_collision_area_entered(area):
 		
 		var attack: Attack = Attack.new()
 		attack.attack_damage = attack_damage
+		attack.knockback_dir = (area.position - position).normalized()
 		attack.knockback_force = knockback_force
+		attack.knockback_timer = 0.12
 		attack.attack_position = global_position
 		attack.stun_time = stun_time
 		

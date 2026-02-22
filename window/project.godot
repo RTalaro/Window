@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Window"
-config/features=PackedStringArray("4.6", "C#", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -34,6 +34,10 @@ project/assembly_name="Window"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/global_input/plugin.cfg")
+
+[global_group]
+
+player=""
 
 [input]
 

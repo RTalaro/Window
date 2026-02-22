@@ -463,7 +463,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_back",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -504,7 +504,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_front",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -545,41 +545,48 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_side",
-"speed": 12.0
+"speed": 24.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(100, 100)
+size = Vector2(28, 51)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(128, 128)
+size = Vector2(32, 55)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
 radius = 112.00446
 
-[node name="Player" type="CharacterBody2D" unique_id=1769850770]
+[node name="Player" type="CharacterBody2D" unique_id=1769850770 groups=["player"]]
 collision_mask = 528387
 script = ExtResource("1_4flbx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2093589252]
 sprite_frames = SubResource("SpriteFrames_yw30f")
-animation = &"idle_front"
+animation = &"idle_side"
+frame_progress = 0.83079743
 
 [node name="PlayerHitbox" type="Area2D" parent="." unique_id=2105686471]
+visible = false
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox" unique_id=2047260701]
+position = Vector2(6, 2.5)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="PlayerWallCollision" type="CollisionShape2D" parent="." unique_id=623934303]
+visible = false
+position = Vector2(6, 2.5)
 shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="PlayerDetectionRadius" type="Area2D" parent="." unique_id=1975407611]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionRadius" unique_id=1979935630]
 shape = SubResource("CircleShape2D_rkbax")
 
 [node name="WeaponHandler" type="Node2D" parent="." unique_id=1789350146]
+visible = false
 script = ExtResource("3_yw30f")
 slot_one = ExtResource("3_g1dw6")
 slot_two = ExtResource("5_qjkh3")

@@ -6,6 +6,8 @@ var sprite_action: String = "idle"
 var sprite_direction: String = "front"
 var animation_name: String
 
+@export var speed: float = 400
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
@@ -21,7 +23,7 @@ func _physics_process(_delta: float) -> void:
 func get_input() -> void:
 	var input_direction: Vector2 = Input.get_vector("Left", "Right", "Up", "Down")
 	update_animation(input_direction)
-	velocity = input_direction * 200
+	velocity = input_direction * speed
 
 func update_animation(input_direction: Vector2) -> void:
 	if input_direction:
