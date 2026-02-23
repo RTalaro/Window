@@ -9,7 +9,7 @@ func damage(attack: Attack):
 	if get_parent() is EnemyBase:
 		get_parent().knockback = attack.knockback_dir * attack.knockback_force
 		get_parent().knockback_timer = attack.knockback_timer
-		
+	
 	# Not great implementation, but gives i-frames to the player
 	if get_parent() is Player:
 		set_deferred("monitoring", false)

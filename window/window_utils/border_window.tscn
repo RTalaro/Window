@@ -36,6 +36,7 @@ anchor_mode = 0
 [node name="TileMapLayer" parent="Window/Camera2D" unique_id=1377398748 instance=ExtResource("3_vt1yh")]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=913116292]
+collision_mask = 8193
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=980279914]
 shape = SubResource("RectangleShape2D_lytty")
