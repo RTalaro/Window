@@ -584,7 +584,7 @@ slot_one = ExtResource("3_g1dw6")
 slot_two = ExtResource("5_qjkh3")
 
 [node name="HealthComponent" parent="." unique_id=1166189687 instance=ExtResource("12_j77er")]
-MAX_HEALTH = 100.0
+MAX_HEALTH = 6.0
 
 [node name="HitboxComponent" parent="." unique_id=706822167 node_paths=PackedStringArray("health_component") instance=ExtResource("12_g0bbo")]
 collision_layer = 8

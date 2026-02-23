@@ -8,6 +8,12 @@ var health: float
 func _ready():
 	health = MAX_HEALTH
 
+func set_health(hp: int):
+	health = hp
+	
+func set_init_health(hp: int):
+	MAX_HEALTH = hp
+	health = MAX_HEALTH
 
 func damage(attack: Attack):
 	health -= attack.attack_damage

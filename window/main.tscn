@@ -14,10 +14,10 @@ position = Vector2(800, 400)
 
 [node name="Enemy" type="Node" parent="." unique_id=949713376]
 
-[node name="Enemy2" parent="." unique_id=1282059791 instance=ExtResource("6_7mycd")]
+[node name="Enemy2" parent="Enemy" unique_id=1282059791 instance=ExtResource("6_7mycd")]
 position = Vector2(1202, 692)
 
-[node name="Enemy3" parent="." unique_id=2088681223 instance=ExtResource("6_7mycd")]
+[node name="Enemy3" parent="Enemy" unique_id=2088681223 instance=ExtResource("6_7mycd")]
 position = Vector2(1202, 692)
 
 [editable path="BorderWindow"]

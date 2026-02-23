@@ -18,6 +18,8 @@ func _init() -> void:
 
 	knockback = Vector2.ZERO
 	knockback_timer = 0.0
+	
+	health = 30
 
 
 func movement(delta):
