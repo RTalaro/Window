@@ -1,6 +1,6 @@
 extends EnemyBase
 
-func _ready():
+func _init() -> void:
 	speed = 100.0
 	wander_speed = 40.0
 

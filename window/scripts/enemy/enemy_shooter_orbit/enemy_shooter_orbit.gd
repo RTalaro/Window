@@ -3,7 +3,7 @@ extends EnemyBase
 var shoot_distance: float = 200.0
 var distance_buffer: float = 10.0
 
-func _ready():
+func _init() -> void:
 	speed = 100.0
 	wander_speed = 40.0
 

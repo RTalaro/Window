@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBodyBase
 
 var window: Window

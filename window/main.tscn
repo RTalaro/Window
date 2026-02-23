@@ -3,9 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://scripts/player/player.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://0cn5celydxuo" path="res://scripts/enemy/enemy_charger/enemy_charger.tscn" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://dvocrqgbuegeo" path="res://scripts/enemy/enemy_follower/enemy_follower.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://5sgxumt6fmhr" path="res://scripts/enemy/enemy_shooter_basic/enemy_shooter_basic.tscn" id="5_7mycd"]
-[ext_resource type="PackedScene" uid="uid://4k4t25dfi23v" path="res://scripts/enemy/enemy_shooter_orbit/enemy_shooter_orbit.tscn" id="6_7mycd"]
 
 [node name="Main" type="Node" unique_id=1267416914]
 
@@ -16,18 +13,7 @@ position = Vector2(800, 400)
 
 [node name="Enemy" type="Node" parent="." unique_id=949713376]
 
-[node name="EnemyCharger" parent="Enemy" unique_id=1002091593 instance=ExtResource("3_1bvp3")]
-position = Vector2(772, 357)
-scale = Vector2(0.5, 0.5)
-
-[node name="EnemyFollower" parent="Enemy" unique_id=1282059791 instance=ExtResource("4_1bvp3")]
-position = Vector2(455.99997, 494.99997)
-scale = Vector2(0.4, 0.4)
-
-[node name="EnemyBasic" parent="Enemy" unique_id=263863929 instance=ExtResource("5_7mycd")]
-position = Vector2(455.99997, 494.99997)
-scale = Vector2(0.4, 0.4)
-
-[node name="Enemy2" parent="Enemy" unique_id=472372304 instance=ExtResource("6_7mycd")]
+[node name="Enemy2" parent="." unique_id=1282059791 instance=ExtResource("3_1bvp3")]
+position = Vector2(955, 755)
 
 [editable path="BorderWindow"]

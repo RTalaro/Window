@@ -36,6 +36,9 @@ size = Vector2(100, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsxj"]
 size = Vector2(128, 128)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oymnf"]
+size = Vector2(100, 100)
+
 [node name="Enemy" type="CharacterBody2D" unique_id=1282059791]
 collision_layer = 128
 collision_mask = 4224
@@ -59,10 +62,17 @@ debug_color = Color(0.654902, 0.5176471, 0, 0.61960787)
 [node name="HealthComponent" parent="." unique_id=1166189687 instance=ExtResource("3_oymnf")]
 
 [node name="HitboxComponent" parent="." unique_id=706822167 node_paths=PackedStringArray("health_component") instance=ExtResource("4_cp5jr")]
+collision_layer = 64
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1061506948]
 shape = SubResource("RectangleShape2D_ofsxj")
+
+[node name="DamageComponent" type="Area2D" parent="." unique_id=1526293764]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageComponent" unique_id=1092979013]
+shape = SubResource("RectangleShape2D_oymnf")
 
 [connection signal="body_entered" from="EnemyPlayerDetection" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="EnemyPlayerDetection" to="." method="_on_detection_area_body_exited"]

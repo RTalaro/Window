@@ -20,6 +20,7 @@ always_on_top = true
 MAX_HEALTH = 30.0
 
 [node name="HitboxComponent" parent="." unique_id=706822167 node_paths=PackedStringArray("health_component") instance=ExtResource("3_crqq7")]
+collision_layer = 64
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=2081422212]
