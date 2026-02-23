@@ -15,6 +15,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	@warning_ignore("integer_division")
 	area_2d.position = Vector2(window.position) + Vector2(window.size / 2)
+	print(Engine.get_frames_per_second())
 
 func _on_window_size_changed() -> void:
 	if collision_shape_2d:

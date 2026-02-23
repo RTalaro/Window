@@ -573,6 +573,7 @@ position = Vector2(6, 2.5)
 shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="PlayerDetectionRadius" type="Area2D" parent="." unique_id=1975407611]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionRadius" unique_id=1979935630]
 shape = SubResource("CircleShape2D_rkbax")
