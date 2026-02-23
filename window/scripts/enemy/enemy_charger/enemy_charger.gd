@@ -11,12 +11,6 @@ var charge_travel: float = 0.0
 
 var cooldown_timer: float = 0.0
 
-func _physics_process(delta):
-	if knockback_timer > 0.0:
-		recieve_knockback(delta)
-	else:
-		movement(delta)
-	move_and_slide()
 
 func movement(delta):
 	if chasing and player:

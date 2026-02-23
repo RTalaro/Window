@@ -16,14 +16,6 @@ func _init_() -> void:
 	knockback_timer = 0.0
 
 
-func _physics_process(delta):
-	if knockback_timer > 0.0:
-		recieve_knockback(delta)
-	else:
-		movement(delta)
-	move_and_slide()
-
-
 func movement(delta):
 	if chasing and player:
 		var to_player: Vector2 = player.global_position - global_position
