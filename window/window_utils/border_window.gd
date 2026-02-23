@@ -1,17 +1,21 @@
 extends NodeBase
 
-@onready var area_2d: Area2D = $Area2D
-
-@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
+var window_elements = []
+var window_initial: Vector2i = Vector2i(0, 0)
+# Window shake
+var decay: float = 0.8
+var max_offset: Vector2 = Vector2(100, 75)
+var trauma: float = 0.0
+var trauma_power: int = 2
 
 @onready var window: Window = $Window
-
-var window_elements = []
+@onready var area_2d: Area2D = $Area2D
+@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
 func _ready() -> void:
 	window.world_2d = get_window().world_2d
-	_on_window_size_changed()
 	window_initial = window.position
+	_on_window_size_changed()
 	
 	
 func _process(delta: float) -> void:
@@ -37,18 +41,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	window_elements.erase(area.get_parent())
 	area.get_parent().exit_window()
-	
-	
-var decay = 0.8
-var max_offset = Vector2(100, 75)
-var trauma = 0.0
-var trauma_power = 2
-
-var window_initial = Vector2i(471, 28)
 
 func shake() -> void:
-	var amount = pow(trauma, trauma_power)
-	var offset_x = max_offset.x * amount * randi_range(-1, 1)
-	var offset_y = max_offset.y * amount * randi_range(-1, 1)
+	var amount: float = pow(trauma, trauma_power)
+	var offset_x: int = max_offset.x * amount * randi_range(-1, 1)
+	var offset_y: int = max_offset.y * amount * randi_range(-1, 1)
 	window.position.x = window_initial.x + offset_x
 	window.position.y = window_initial.y + offset_y

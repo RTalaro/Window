@@ -2,9 +2,32 @@
 
 [ext_resource type="Script" uid="uid://cxqhp7330q23m" path="res://helper/wall.gd" id="1_p3erc"]
 [ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="1_tcd1v"]
+[ext_resource type="PackedScene" uid="uid://gsgikxdbhgvg" path="res://scripts/health_component.tscn" id="3_g5s3c"]
+[ext_resource type="PackedScene" uid="uid://bldr7hxtauweo" path="res://scripts/hitbox_component.tscn" id="4_482sd"]
+[ext_resource type="Texture2D" uid="uid://la8cmdsb0kwm" path="res://assets/temp_art/temp_tileset.png" id="5_482sd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok30d"]
 size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q811"]
+size = Vector2(128, 128)
+
+[sub_resource type="Curve" id="Curve_482sd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4q811"]
+curve = SubResource("Curve_482sd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4q811"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 64, 0)
+direction = Vector3(0, -1, 0)
+spread = 90.0
+flatness = 1.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_curve = SubResource("CurveTexture_4q811")
 
 [node name="Wall" type="Node2D" unique_id=947232948]
 script = ExtResource("1_p3erc")
@@ -18,3 +41,21 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallCollision" unique_id=1154070820]
 shape = SubResource("RectangleShape2D_ok30d")
+
+[node name="HealthComponent" parent="." unique_id=1166189687 instance=ExtResource("3_g5s3c")]
+MAX_HEALTH = 50.0
+
+[node name="HitboxComponent" parent="." unique_id=706822167 node_paths=PackedStringArray("health_component") instance=ExtResource("4_482sd")]
+collision_layer = 524288
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=2078836802]
+shape = SubResource("RectangleShape2D_4q811")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1745943381]
+emitting = false
+texture = ExtResource("5_482sd")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_4q811")

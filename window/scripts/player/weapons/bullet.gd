@@ -32,6 +32,7 @@ func _on_target_collision_area_entered(area):
 		queue_free()
 	piercing -= 1
 	if area is HitboxComponent:
+		print("hello?")
 		var hitbox: HitboxComponent = area
 		
 		var attack: Attack = Attack.new()
