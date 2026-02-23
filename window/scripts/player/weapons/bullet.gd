@@ -8,9 +8,13 @@ extends CharacterBody2D
 var attack_damage: float = 10.0
 var knockback_force: float = 150.0
 var stun_time: float = 10.0
+var knockback_timer: float = 0.12
 
+var target: int = 1
+@onready var target_collision: Area2D = $TargetCollision
 
 func _ready() -> void: 
+	target_collision.set_collision_mask_value(target, true)
 	despawn()
 
 func _physics_process(_delta: float) -> void:
@@ -34,7 +38,7 @@ func _on_target_collision_area_entered(area):
 		attack.attack_damage = attack_damage
 		attack.knockback_dir = (area.position - position).normalized()
 		attack.knockback_force = knockback_force
-		attack.knockback_timer = 0.12
+		attack.knockback_timer = knockback_timer
 		attack.attack_position = global_position
 		attack.stun_time = stun_time
 		

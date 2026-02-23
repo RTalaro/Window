@@ -22,6 +22,7 @@ func _process(_delta: float) -> void:
 func shoot() -> void:
 	if (!%Player): return
 	var new_bullet: Node = BULLET.instantiate()
+	new_bullet.target = 4
 	new_bullet.global_position = window.position + (window.size / 2)
 	new_bullet.look_at(%Player.global_position)
 	var dir = %Player.global_position - Vector2(window.position)

@@ -20,6 +20,7 @@ func shoot() -> void:
 		can_shoot = false
 		timer.start(cooldown)
 		var new_bullet: Node = BULLET.instantiate()
+		new_bullet.target = 7
 		new_bullet.position = bullet_spawn.global_position
 		new_bullet.look_at(get_global_mouse_position())
 		new_bullet.target_direction = (get_global_mouse_position() - bullet_spawn.global_position).normalized()

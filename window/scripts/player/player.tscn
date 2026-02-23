@@ -586,7 +586,7 @@ slot_two = ExtResource("5_qjkh3")
 MAX_HEALTH = 100.0
 
 [node name="HitboxComponent" parent="." unique_id=706822167 node_paths=PackedStringArray("health_component") instance=ExtResource("12_g0bbo")]
-collision_layer = 1
+collision_layer = 8
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=682292910]
