@@ -1,10 +1,5 @@
 extends Node
 
-@onready var main_window: Node = $BorderWindow
-@onready var player: CharacterBody2D = $Player
-
-
 func _ready() -> void:
-	@warning_ignore("integer_division")
-	main_window.window.position = Vector2i(get_window().size / 2 - (main_window.window.size / 2))
-	player.position = main_window.window.position + Vector2i(main_window.window.size / 2)
+	get_window().set_canvas_cull_mask_bit(1, false)
+	get_window().set_canvas_cull_mask_bit(2, false)

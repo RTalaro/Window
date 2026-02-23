@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://s4c6m68td6vx"]
 
 [ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bo5wymk8ekwvk" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://scripts/player/player.tscn" id="2_7mycd"]
-[ext_resource type="PackedScene" uid="uid://vik1m25hw20e" path="res://helper/wall.tscn" id="4_5vw27"]
+[ext_resource type="PackedScene" uid="uid://0cn5celydxuo" path="res://scripts/enemy/enemy_charger/enemy_charger.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://v3b8aogn82hd" path="res://helper/containers/inside_container.tscn" id="8_kek77"]
 
 [node name="Main" type="Node" unique_id=1267416914]
+script = ExtResource("1_lquwl")
 
 [node name="BorderWindow" parent="." unique_id=304158618 instance=ExtResource("1_0xm2m")]
 unique_name_in_owner = true
@@ -16,7 +18,9 @@ position = Vector2(800, 400)
 
 [node name="Enemy" type="Node" parent="." unique_id=949713376]
 
+[node name="Enemy" parent="Enemy" unique_id=1282059791 instance=ExtResource("3_1bvp3")]
+position = Vector2(1177, 732)
+
 [node name="InsideContainer" parent="." unique_id=515590093 instance=ExtResource("8_kek77")]
-ITEM = ExtResource("4_5vw27")
 
 [editable path="BorderWindow"]
