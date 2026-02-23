@@ -11,6 +11,8 @@ func _init() -> void:
 
 	knockback = Vector2.ZERO
 	knockback_timer = 0.0
+	
+	health = 40
 
 
 func movement(delta):
@@ -19,14 +21,3 @@ func movement(delta):
 		velocity = dir * speed
 	else:
 		wander(delta)
-
-
-func _on_detection_area_body_entered(body):
-	if body.is_in_group("player"):
-		player = body
-		chasing = true
-
-
-func _on_detection_area_body_exited(body):
-	if body == player:
-		chasing = false

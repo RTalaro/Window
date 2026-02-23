@@ -12,9 +12,8 @@ radius = 17.029387
 
 [node name="Bullet" type="CharacterBody2D" unique_id=1942248473]
 collision_layer = 0
-collision_mask = 64
+collision_mask = 0
 script = ExtResource("1_v8qja")
-speed = 1000
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=779062050]
 scale = Vector2(0.25, 0.25)
@@ -24,8 +23,8 @@ texture = ExtResource("1_v7oki")
 shape = SubResource("RectangleShape2D_46f7d")
 
 [node name="TargetCollision" type="Area2D" parent="." unique_id=1092172352]
-collision_layer = 524288
-collision_mask = 524288
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetCollision" unique_id=1234449164]
 shape = SubResource("CircleShape2D_3h75o")

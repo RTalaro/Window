@@ -13,15 +13,23 @@ var wander_time: float = 0.0
 var knockback: Vector2 = Vector2.ZERO
 
 # Attack Info
-var attack_damage: float
+var attack_damage: int = 1
 var knockback_force: float
 var knockback_timer: float
 var stun_time: float
 
+var health: int = 30
+
 @onready var damage_component: Area2D = $DamageComponent
+@onready var health_component: HealthComponent = $HealthComponent
+@onready var enemy_player_detection: Area2D = $EnemyPlayerDetection
+
 
 func _ready() -> void:
 	damage_component.area_entered.connect(_on_damage_area_entered)
+	health_component.set_init_health(health)
+	enemy_player_detection.body_entered.connect(_on_detection_area_body_entered)
+	enemy_player_detection.body_exited.connect(_on_detection_area_body_exited)
 
 func _physics_process(delta):
 	if knockback_timer > 0.0:
@@ -46,6 +54,17 @@ func wander(delta):
 		wander_dir = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
 	velocity = wander_dir * wander_speed
 	
+func shoot(bullet: PackedScene) -> void:
+	if (!player): return
+	var new_bullet: Node = bullet.instantiate()
+	new_bullet.target = 4
+	new_bullet.attack_damage = 1 # bad code (fix later)
+	new_bullet.global_position = global_position
+	new_bullet.look_at(player.global_position)
+	var dir = player.global_position - global_position
+	new_bullet.target_direction = (dir).normalized()
+	get_tree().root.add_child(new_bullet)
+	
 func _on_damage_area_entered(area) -> void:
 	if area is HitboxComponent:
 		var hitbox: HitboxComponent = area
@@ -60,3 +79,13 @@ func _on_damage_area_entered(area) -> void:
 		
 		print("damaged")
 		hitbox.damage(attack)
+		
+
+func _on_detection_area_body_entered(body):
+	if body.is_in_group("player"):
+		player = body
+		chasing = true
+
+func _on_detection_area_body_exited(body):
+	if body == player:
+		chasing = false

@@ -28,6 +28,7 @@ func shoot() -> void:
 	var dir = %Player.global_position - Vector2(window.position)
 	new_bullet.target_direction = (dir).normalized()
 	get_tree().root.add_child(new_bullet)
+	
 
 func _on_timer_timeout() -> void:
 	shoot()

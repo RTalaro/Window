@@ -10,7 +10,7 @@ var knockback_force: float = 150.0
 var stun_time: float = 10.0
 var knockback_timer: float = 0.12
 
-var target: int = 1
+@export var target: int = 1
 @onready var target_collision: Area2D = $TargetCollision
 
 func _ready() -> void: 
@@ -27,7 +27,7 @@ func despawn() -> void:
 	queue_free()
 
 
-func _on_target_collision_area_entered(area):
+func _on_target_collision_area_entered(area: Area2D):
 	if piercing <= 0:
 		queue_free()
 	piercing -= 1

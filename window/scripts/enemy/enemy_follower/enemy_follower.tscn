@@ -43,8 +43,6 @@ size = Vector2(100, 100)
 collision_layer = 128
 collision_mask = 4224
 script = ExtResource("1_ofsxj")
-speed = null
-wander_speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=92805522]
 modulate = Color(0.89411765, 0.101960786, 0.0627451, 1)
@@ -73,9 +71,7 @@ shape = SubResource("RectangleShape2D_ofsxj")
 
 [node name="DamageComponent" type="Area2D" parent="." unique_id=1256250632]
 collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageComponent" unique_id=1899188337]
 shape = SubResource("RectangleShape2D_5b2yi")
-
-[connection signal="body_entered" from="EnemyPlayerDetection" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="EnemyPlayerDetection" to="." method="_on_detection_area_body_exited"]

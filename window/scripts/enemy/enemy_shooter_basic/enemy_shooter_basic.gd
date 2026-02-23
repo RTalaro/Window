@@ -2,8 +2,12 @@ extends EnemyBase
 
 var shoot_distance: float = 300.0
 var distance_buffer: float = 10.0
+var can_shoot: bool = true
 
-func _init_() -> void:
+const BULLET = preload("res://scripts/player/weapons/bullet.tscn")
+@onready var timer = $Timer
+
+func _init() -> void:
 	speed = 100.0
 	wander_speed = 40.0
 
@@ -14,6 +18,8 @@ func _init_() -> void:
 
 	knockback = Vector2.ZERO
 	knockback_timer = 0.0
+	
+	health = 30
 
 
 func movement(delta):
@@ -22,21 +28,19 @@ func movement(delta):
 		var dist: float = to_player.length()
 		var dir: Vector2 = to_player.normalized()
 
-		if dist < (shoot_distance - distance_buffer):
-			velocity = -dir * speed
-		elif dist > (shoot_distance + distance_buffer):
+		if dist > (shoot_distance + distance_buffer):
 			velocity = dir * speed
-		else:
-			velocity = Vector2(0,0)
+		elif can_shoot:
+			shoot(BULLET)
+			can_shoot = false
+			timer.start()
+			if dist < (shoot_distance - distance_buffer):
+				velocity = -dir * speed
+			else:
+				velocity = Vector2(0, 0)
 	else:
 		wander(delta)
 
 
-func _on_detection_area_body_entered(body):
-	if body.is_in_group("player"):
-		player = body
-		chasing = true
-
-func _on_detection_area_body_exited(body):
-	if body == player:
-		chasing = false
+func _on_timer_timeout():
+	can_shoot = true

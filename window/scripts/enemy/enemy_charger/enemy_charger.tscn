@@ -71,9 +71,7 @@ shape = SubResource("RectangleShape2D_ofsxj")
 
 [node name="DamageComponent" type="Area2D" parent="." unique_id=74871826]
 collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageComponent" unique_id=1136187406]
 shape = SubResource("RectangleShape2D_ko3tc")
-
-[connection signal="body_entered" from="EnemyPlayerDetection" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="EnemyPlayerDetection" to="." method="_on_detection_area_body_exited"]

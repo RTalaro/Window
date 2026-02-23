@@ -71,9 +71,13 @@ shape = SubResource("RectangleShape2D_ofsxj")
 
 [node name="DamageComponent" type="Area2D" parent="." unique_id=278814715]
 collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageComponent" unique_id=2019700489]
 shape = SubResource("RectangleShape2D_d4h70")
 
-[connection signal="body_entered" from="EnemyPlayerDetection" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="EnemyPlayerDetection" to="." method="_on_detection_area_body_exited"]
+[node name="Timer" type="Timer" parent="." unique_id=1950314039]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
