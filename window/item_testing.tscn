@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ckfnbvncxk0dy"]
+
+[ext_resource type="PackedScene" uid="uid://boulyy2tyoe4" path="res://helper/landmine.tscn" id="1_dfbmq"]
+[ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://scripts/player/player.tscn" id="2_a6dg1"]
+
+[node name="Node" type="Node" unique_id=646880526]
+
+[node name="Landmine" parent="." unique_id=1435201014 instance=ExtResource("1_dfbmq")]
+position = Vector2(807, 255)
+
+[node name="Player" parent="." unique_id=1769850770 instance=ExtResource("2_a6dg1")]
+position = Vector2(351, 315)
