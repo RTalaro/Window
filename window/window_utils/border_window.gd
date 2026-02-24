@@ -7,6 +7,7 @@ var decay: float = 0.8
 var max_offset: Vector2 = Vector2(100, 75)
 var trauma: float = 0.0
 var trauma_power: int = 2
+var locked: bool = true
 
 @onready var window: Window = $Window
 @onready var area_2d: Area2D = $Area2D
@@ -22,6 +23,9 @@ func _process(delta: float) -> void:
 	@warning_ignore("integer_division")
 	area_2d.position = Vector2(window.position) + Vector2(window.size / 2)
 	
+	if locked:
+		window.position = window_initial
+		
 	if trauma:
 		trauma = max(trauma - decay * delta, 0)
 		shake()
@@ -32,7 +36,6 @@ func add_trauma(amount) -> void:
 func _on_window_size_changed() -> void:
 	if collision_shape_2d:
 		collision_shape_2d.shape.size = Vector2i(window.size.x, window.size.y)
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	window_elements.append(area.get_parent())

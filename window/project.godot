@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalInput="*uid://iejpghgiofrp"
+GlobalSignals="*uid://c6a5eu5wbn0y5"
 
 [display]
 

@@ -24,7 +24,9 @@ func _ready() -> void:
 
 func tween_to_pos(pos: Vector2i):
 	var tween: Tween = create_tween()
-	return await tween.tween_property(window, "position", pos, 0.5).finished
+	await tween.tween_property(window, "position", pos, 0.5).finished
+	window.start_movement()
+	return
 	#window.start_movement()
 	
 func _process(_delta: float) -> void:

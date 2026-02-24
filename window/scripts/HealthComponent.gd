@@ -19,4 +19,8 @@ func damage(attack: Attack):
 	health -= attack.attack_damage
 	
 	if health <= 0:
+		if get_parent() is EnemyBase:
+			get_parent().queue_free()
+			await get_parent().tree_exited
+			GlobalSignals.enemy_dead.emit()
 		get_parent().queue_free()

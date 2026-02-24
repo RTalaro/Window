@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl8jlkxuceb27"
-path="res://.godot/imported/turret_base.png-2f80bc5574eecffbb3d99cb8b57ec575.ctex"
+uid="uid://b0gt0hhxwdxd"
+path="res://.godot/imported/enemy_bat_walk.png-7524492184bd0148e8491c869bcbfe93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/turret_base.png"
-dest_files=["res://.godot/imported/turret_base.png-2f80bc5574eecffbb3d99cb8b57ec575.ctex"]
+source_file="res://assets/temp_art/enemy_bat_walk.png"
+dest_files=["res://.godot/imported/enemy_bat_walk.png-7524492184bd0148e8491c869bcbfe93.ctex"]
 
 [params]
 

@@ -31,6 +31,7 @@ func start_movement() -> void:
 	if (in_window): return
 	tween = create_tween().set_loops()
 	tween.tween_property(self, "position:y", 50, 1).as_relative()
+	tween.set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "position:y", -50, 1).as_relative()
 	
 func stop_movement() -> void:

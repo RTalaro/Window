@@ -20,6 +20,7 @@ var stun_time: float
 
 var health: int = 30
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var damage_component: Area2D = $DamageComponent
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var enemy_player_detection: Area2D = $EnemyPlayerDetection

@@ -21,11 +21,18 @@ func _init() -> void:
 	
 	health = 10
 
-
-
 func movement(delta):
+	animated_sprite.play("no_outline")
+	if velocity.x > 0:
+		animated_sprite.flip_h = false
+	else:
+		animated_sprite.flip_h = true
 	if chasing and player:
 		var to_player: Vector2 = player.global_position - global_position
+		if to_player.x > 0:
+			animated_sprite.flip_h = false
+		else:
+			animated_sprite.flip_h = true
 		var dist: float = to_player.length()
 		var dir: Vector2 = to_player.normalized()
 

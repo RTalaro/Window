@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cki12l36fv70c"
-path="res://.godot/imported/player_idle_side.png-798faf53a92f873e5b5b2214a547042c.ctex"
+uid="uid://bn7xpo84ha12o"
+path="res://.godot/imported/turret_barrel.png-097137042b009ac0d67dedb0c0af6cde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/player_idle_side.png"
-dest_files=["res://.godot/imported/player_idle_side.png-798faf53a92f873e5b5b2214a547042c.ctex"]
+source_file="res://assets/temp_art/turret_barrel.png"
+dest_files=["res://.godot/imported/turret_barrel.png-097137042b009ac0d67dedb0c0af6cde.ctex"]
 
 [params]
 
