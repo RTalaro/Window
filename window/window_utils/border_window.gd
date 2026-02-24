@@ -20,6 +20,7 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
+	if (!window): return
 	@warning_ignore("integer_division")
 	area_2d.position = Vector2(window.position) + Vector2(window.size / 2)
 	
