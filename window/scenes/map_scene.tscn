@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c0l1vkley7w5g"]
+
+[ext_resource type="PackedScene" uid="uid://dcou5544nsi5i" path="res://window_utils/tile_map_outline.tscn" id="1_ne7uw"]
+[ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://scripts/player/player.tscn" id="2_5m4q6"]
+
+[node name="MapScene" type="Node2D" unique_id=1629733735]
+
+[node name="TileMapLayer" parent="." unique_id=1377398748 instance=ExtResource("1_ne7uw")]
+
+[node name="Player" parent="." unique_id=1769850770 instance=ExtResource("2_5m4q6")]
+unique_name_in_owner = true
+position = Vector2(107, 109)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=769533247]
