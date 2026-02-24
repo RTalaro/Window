@@ -11,7 +11,7 @@ func damage(attack: Attack):
 		get_parent().knockback_timer = attack.knockback_timer
 	
 	# Not great implementation, but gives i-frames to the player
-	if get_parent() is Player:
+	if get_parent() is Player or ItemBase:
 		set_deferred("monitoring", false)
 		await get_tree().create_timer(1.0).timeout
 		set_deferred("monitoring", true)

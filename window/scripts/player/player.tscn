@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bpf05xgpk3g5m" path="res://assets/art/player_walk_side.png" id="7_g0bbo"]
 [ext_resource type="PackedScene" uid="uid://bldr7hxtauweo" path="res://scripts/hitbox_component.tscn" id="12_g0bbo"]
 [ext_resource type="PackedScene" uid="uid://gsgikxdbhgvg" path="res://scripts/health_component.tscn" id="12_j77er"]
+[ext_resource type="Texture2D" uid="uid://la8cmdsb0kwm" path="res://assets/temp_art/temp_tileset.png" id="13_j77er"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8clcj"]
 atlas = ExtResource("2_jft68")
@@ -559,6 +560,23 @@ radius = 112.00446
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(28, 51)
 
+[sub_resource type="Curve" id="Curve_p83wy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4q811"]
+curve = SubResource("Curve_p83wy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g4jq6"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 64, 0)
+direction = Vector3(0, -1, 0)
+spread = 90.0
+flatness = 1.0
+initial_velocity_min = 500.0
+initial_velocity_max = 750.0
+scale_curve = SubResource("CurveTexture_4q811")
+
 [node name="Player" type="CharacterBody2D" unique_id=1769850770 groups=["player"]]
 collision_mask = 528387
 script = ExtResource("1_4flbx")
@@ -593,3 +611,11 @@ health_component = NodePath("../HealthComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=682292910]
 position = Vector2(6, 2.5)
 shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=940997698]
+emitting = false
+amount = 32
+texture = ExtResource("13_j77er")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_g4jq6")

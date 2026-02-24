@@ -41,7 +41,7 @@ size = Vector2(100, 100)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1282059791]
 collision_layer = 128
-collision_mask = 4224
+collision_mask = 528512
 script = ExtResource("1_8vb2n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1078885648]
@@ -71,7 +71,7 @@ shape = SubResource("RectangleShape2D_ofsxj")
 
 [node name="DamageComponent" type="Area2D" parent="." unique_id=278814715]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 524296
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageComponent" unique_id=2019700489]
 shape = SubResource("RectangleShape2D_d4h70")

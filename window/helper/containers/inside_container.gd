@@ -21,6 +21,11 @@ func _ready() -> void:
 	
 	# Need to find a way to set this for all windows in main
 	window.world_2d = get_window().world_2d
+
+func tween_to_pos(pos: Vector2i):
+	var tween: Tween = create_tween()
+	return await tween.tween_property(window, "position", pos, 0.5).finished
+	#window.start_movement()
 	
 func _process(_delta: float) -> void:
 	area_2d.position = Vector2(window.position)
@@ -29,6 +34,8 @@ func _process(_delta: float) -> void:
 
 func enter_window() -> void:
 	window.borderless = true
+	window.in_window = true
 
 func exit_window() -> void:
 	window.borderless = false
+	window.in_window = false

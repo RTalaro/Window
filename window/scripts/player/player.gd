@@ -12,6 +12,8 @@ var animation_name: String
 @export var FRICTION: float = 25.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
+@onready var hitbox_collision: CollisionShape2D = $HitboxComponent/CollisionShape2D
 
 func _ready() -> void:
 	window = get_window()
