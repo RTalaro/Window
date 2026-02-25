@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://fvwx10soag3h"]
+
+[ext_resource type="Script" uid="uid://cf4djcxrsjapq" path="res://overworld.gd" id="1_6jwp1"]
+[ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="2_omswd"]
+[ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://scripts/player/player.tscn" id="2_v726c"]
+[ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="3_824ie"]
+[ext_resource type="Script" uid="uid://bvrlygrbtlm5o" path="res://line_2d.gd" id="5_omswd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_824ie"]
+radius = 86.34813
+
+[node name="Node" type="Node" unique_id=1683825535]
+script = ExtResource("1_6jwp1")
+
+[node name="BorderWindow" parent="." unique_id=304158618 instance=ExtResource("2_omswd")]
+
+[node name="Window" parent="BorderWindow" index="0" unique_id=169679679]
+snap_2d_transforms_to_pixel = true
+
+[node name="Area2D2" type="Area2D" parent="BorderWindow" unique_id=2036516071]
+position = Vector2(902, 801)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderWindow/Area2D2" unique_id=715282898]
+shape = SubResource("CircleShape2D_824ie")
+
+[node name="Sprite2D" type="Sprite2D" parent="BorderWindow/Area2D2" unique_id=1799083240]
+texture = ExtResource("3_824ie")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1838709932]
+position = Vector2(1.7036133, 791.8999)
+scale = Vector2(0.6425926, 3.85)
+points = PackedVector2Array(0, 0, 1000, 0)
+width = 40.0
+script = ExtResource("5_omswd")
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=1572630569]
+position = Vector2(1940.5928, 782.8999)
+scale = Vector2(0.83981484, 3.85)
+points = PackedVector2Array(0, 0, 1000, 0)
+width = 40.0
+script = ExtResource("5_omswd")
+
+[node name="Player" parent="." unique_id=1769850770 instance=ExtResource("2_v726c")]
+unique_name_in_owner = true
+position = Vector2(519, 767)
+
+[connection signal="area_entered" from="BorderWindow/Area2D2" to="." method="_on_area_2d_area_entered"]
+
+[editable path="BorderWindow"]

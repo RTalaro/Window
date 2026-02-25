@@ -578,6 +578,7 @@ initial_velocity_max = 750.0
 scale_curve = SubResource("CurveTexture_4q811")
 
 [node name="Player" type="CharacterBody2D" unique_id=1769850770 groups=["player"]]
+scale = Vector2(1.5, 1.5)
 collision_mask = 528387
 script = ExtResource("1_4flbx")
 
@@ -587,12 +588,10 @@ animation = &"idle_side"
 frame_progress = 0.83079743
 
 [node name="PlayerWallCollision" type="CollisionShape2D" parent="." unique_id=623934303]
-visible = false
 position = Vector2(6, 2.5)
 shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="PlayerDetectionRadius" type="Area2D" parent="." unique_id=1975407611]
-visible = false
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionRadius" unique_id=1979935630]
@@ -607,7 +606,6 @@ slot_two = ExtResource("5_qjkh3")
 MAX_HEALTH = 6.0
 
 [node name="HitboxComponent" parent="." unique_id=706822167 node_paths=PackedStringArray("health_component") instance=ExtResource("12_g0bbo")]
-visible = false
 collision_layer = 8
 health_component = NodePath("../HealthComponent")
 

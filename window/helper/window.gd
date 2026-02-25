@@ -6,9 +6,13 @@ var mouse_offset: Vector2
 var dragged: bool
 var tween: Tween
 
-var in_window: bool = false # Doubles as a bool to do tween or not
+@export var in_window: bool = false # Doubles as a bool to do tween or not
 
 @onready var camera_2d: Camera2D = $Camera2D
+
+# Added for overworld prototyping
+func _ready() -> void:
+	camera_2d.position = position
 
 func _process(_delta: float) -> void:
 	camera_2d.position = position

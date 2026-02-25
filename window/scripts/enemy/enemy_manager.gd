@@ -4,6 +4,16 @@ extends Node
 
 func _ready() -> void:
 	GlobalSignals.enemy_dead.connect(enemy_dead)
+	spawn_enemy()
+
+func spawn_enemy() -> void:
+	var enemy = enemy_list[0].instantiate()
+	enemy.position = Vector2(1500, 1000)
+	enemy.modulate = Color(0, 0, 0, 0)
+	add_child(enemy)
+	
+	var tween: Tween = create_tween()
+	await tween.tween_property(enemy, "modulate", Color(1, 1, 1, 1), 0.5)
 	
 func enemy_dead() -> void:
 	print("an enemy died")
@@ -12,7 +22,9 @@ func enemy_dead() -> void:
 		print("all enemies are dead")
 		await get_tree().create_timer(1.0).timeout
 		print("player exit transition")
-		%Player.gpu_particles_2d.restart()
 		var tween: Tween = create_tween()
-		tween.tween_property(%Player, "modulate", Color(1, 1, 1, 0), 1.0)
+		#get_parent().player.gpu_particles_2d.restart()
+		get_parent().player.reparent(GlobalSignals)
+		get_parent().game_window.reparent(GlobalSignals)
+		get_tree().change_scene_to_file("res://overworld.tscn")
 	return

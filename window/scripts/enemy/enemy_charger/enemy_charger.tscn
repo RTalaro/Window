@@ -94,18 +94,19 @@ collision_mask = 528512
 script = ExtResource("1_ricjt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=826699228]
-modulate = Color(0.24567115, 0.5712962, 0, 1)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_5gsg7")
-frame_progress = 0.1499958
+frame_progress = 0.6667191
 
 [node name="EnemyPlayerDetection" type="Area2D" parent="." unique_id=1077767680]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPlayerDetection" unique_id=541667315]
 shape = SubResource("CircleShape2D_4gyqm")
 
 [node name="EnemyOverlap" type="CollisionShape2D" parent="." unique_id=2022235086]
+visible = false
 shape = SubResource("RectangleShape2D_qi2p4")
 debug_color = Color(0.654902, 0.5176471, 0, 0.61960787)
 
@@ -120,6 +121,7 @@ health_component = NodePath("../HealthComponent")
 shape = SubResource("RectangleShape2D_ofsxj")
 
 [node name="DamageComponent" type="Area2D" parent="." unique_id=74871826]
+visible = false
 collision_layer = 0
 collision_mask = 524296
 

@@ -2,5 +2,9 @@
 
 [node name="Tester" type="Node2D" unique_id=1848826582]
 
-[node name="Window" type="Window" parent="." unique_id=1933150479]
-oversampling_override = 1.0
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1477329665]
+offset_left = 297.0
+offset_top = 424.0
+offset_right = 1131.0
+offset_bottom = 649.0
+color = Color(1, 1, 1, 0.29803923)

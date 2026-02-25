@@ -1,36 +1,19 @@
 [gd_scene format=3 uid="uid://s4c6m68td6vx"]
 
-[ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bo5wymk8ekwvk" path="res://main.gd" id="1_lquwl"]
-[ext_resource type="PackedScene" uid="uid://6wc2f4qka80l" path="res://scripts/player/player.tscn" id="2_7mycd"]
 [ext_resource type="Script" uid="uid://cwxpoafrig7nl" path="res://scripts/enemy/enemy_manager.gd" id="4_4c57u"]
-[ext_resource type="PackedScene" uid="uid://4k4t25dfi23v" path="res://scripts/enemy/enemy_shooter_orbit/enemy_shooter_orbit.tscn" id="4_5vw27"]
 [ext_resource type="Script" uid="uid://r6ckdvgxearg" path="res://helper/item_manager.gd" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://0cn5celydxuo" path="res://scripts/enemy/enemy_charger/enemy_charger.tscn" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://vik1m25hw20e" path="res://helper/wall.tscn" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://boulyy2tyoe4" path="res://helper/landmine.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://dvocrqgbuegeo" path="res://scripts/enemy/enemy_follower/enemy_follower.tscn" id="6_dg77c"]
-[ext_resource type="PackedScene" uid="uid://5sgxumt6fmhr" path="res://scripts/enemy/enemy_shooter_basic/enemy_shooter_basic.tscn" id="7_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://v3b8aogn82hd" path="res://helper/containers/inside_container.tscn" id="8_kek77"]
 
 [node name="Main" type="Node" unique_id=1267416914]
 script = ExtResource("1_lquwl")
 
-[node name="BorderWindow" parent="." unique_id=304158618 instance=ExtResource("1_0xm2m")]
-unique_name_in_owner = true
-
-[node name="Player" parent="BorderWindow/Window/Camera2D" parent_id_path=PackedInt32Array(304158618, 979188739) index="1" unique_id=1769850770 instance=ExtResource("2_7mycd")]
-unique_name_in_owner = true
-
 [node name="EnemyManager" type="Node" parent="." unique_id=949713376]
 script = ExtResource("4_4c57u")
-enemy_list = Array[PackedScene]([ExtResource("5_kek77"), ExtResource("6_dg77c"), ExtResource("7_ycdy4"), ExtResource("4_5vw27")])
-
-[node name="Enemy" parent="EnemyManager" unique_id=1282059791 instance=ExtResource("4_5vw27")]
-position = Vector2(999, 904)
-
-[node name="Enemy2" parent="EnemyManager" unique_id=1826190156 instance=ExtResource("5_kek77")]
-position = Vector2(1075, 649)
+enemy_list = Array[PackedScene]([ExtResource("5_kek77")])
 
 [node name="ItemManager" type="Node" parent="." unique_id=561261181]
 script = ExtResource("5_5vw27")
@@ -42,5 +25,3 @@ ITEM = ExtResource("6_7mycd")
 ITEM = ExtResource("6_5vw27")
 
 [node name="InsideContainer3" parent="ItemManager" unique_id=123723347 instance=ExtResource("8_kek77")]
-
-[editable path="BorderWindow"]
