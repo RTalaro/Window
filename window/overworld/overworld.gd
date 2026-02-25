@@ -4,10 +4,13 @@ var player: Player
 @onready var border_window: Node = $BorderWindow
 
 func _ready() -> void:
-	if GlobalData.has_node("Player"):
-		GlobalData.get_node("Player").reparent(self)
-		player = get_node("Player")
+	if GlobalData.player:
+		GlobalData.player.reparent(self)
+		player = GlobalData.player
 		game_to_overworld()
+	if GlobalData.game_window:
+		border_window.queue_free()
+		GlobalData.game_window.reparent(self)
 	border_window.tile_map.collision_enabled = false
 	border_window.tile_map.modulate = Color(1, 1, 1, 0)
 	border_window.room_trigger.area_entered.connect(room_trigger_entered, CONNECT_APPEND_SOURCE_OBJECT)

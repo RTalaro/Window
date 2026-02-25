@@ -9,6 +9,8 @@ func _ready() -> void:
 	var p: Node = PLAYER.instantiate()
 	p.position = get_window().size / 2
 	add_child(p)
+	
+	player = p
 
 func update_instance(p: Player, window: NodeBase):
 	# Not sure if this is redundant, but I'm just worried about 

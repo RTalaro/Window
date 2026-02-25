@@ -4,6 +4,11 @@ extends Node
 
 func _ready() -> void:
 	GlobalSignals.enemy_dead.connect(enemy_dead)
+
+func spawn_enemy() -> void:
+	var enemy = enemy_list[0].instantiate()
+	enemy.position = get_window().size / 2
+	add_child(enemy)
 	
 func enemy_dead() -> void:
 	print("an enemy died")
@@ -11,8 +16,5 @@ func enemy_dead() -> void:
 	if get_child_count() == 0:
 		print("all enemies are dead")
 		await get_tree().create_timer(1.0).timeout
-		print("player exit transition")
-		%Player.gpu_particles_2d.restart()
-		var tween: Tween = create_tween()
-		tween.tween_property(%Player, "modulate", Color(1, 1, 1, 0), 1.0)
+		get_parent().transition_back()
 	return
