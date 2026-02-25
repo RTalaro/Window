@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cr0divcdm188a"]
+
+[ext_resource type="Script" uid="uid://cyv50usj17w83" path="res://overworld/overworld.gd" id="1_6jwp1"]
+[ext_resource type="Script" uid="uid://d3abcrjure2q4" path="res://overworld/path.gd" id="2_w0qnv"]
+[ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="3_criu7"]
+
+[node name="Overworld" type="Node" unique_id=971802561]
+script = ExtResource("1_6jwp1")
+
+[node name="Left" type="Line2D" parent="." unique_id=1636505965]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-21.429333, 769)
+scale = Vector2(3.3336763, 1)
+points = PackedVector2Array(0, 0, 200, 0)
+width = 80.0
+script = ExtResource("2_w0qnv")
+
+[node name="Right" type="Line2D" parent="." unique_id=411337736]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1919.0002, 774)
+scale = Vector2(3.3722222, 1)
+points = PackedVector2Array(0, 0, 200, 0)
+width = 80.0
+script = ExtResource("2_w0qnv")
+
+[node name="BorderWindow" parent="." unique_id=304158618 instance=ExtResource("3_criu7")]
+
+[node name="RoomTrigger" parent="BorderWindow" index="2" unique_id=1378582814]
+collision_layer = 0
+collision_mask = 8
+
+[editable path="BorderWindow"]
