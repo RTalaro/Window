@@ -1,32 +1,183 @@
 [gd_scene format=3 uid="uid://cr0divcdm188a"]
 
 [ext_resource type="Script" uid="uid://cyv50usj17w83" path="res://overworld/overworld.gd" id="1_6jwp1"]
-[ext_resource type="Script" uid="uid://d3abcrjure2q4" path="res://overworld/path.gd" id="2_w0qnv"]
 [ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="3_criu7"]
+[ext_resource type="PackedScene" uid="uid://ckrlk8hasylta" path="res://overworld/path.tscn" id="3_nnj58"]
+[ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="3_uniiq"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xp5fb"]
+resource_local_to_scene = true
+b = Vector2(1280, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fysd7"]
+resource_local_to_scene = true
+b = Vector2(1280, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tyf74"]
+resource_local_to_scene = true
+b = Vector2(1280, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5dwah"]
+resource_local_to_scene = true
+b = Vector2(1280, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hfh87"]
+resource_local_to_scene = true
+b = Vector2(880, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_i8gr5"]
+resource_local_to_scene = true
+b = Vector2(880, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_85x44"]
+resource_local_to_scene = true
+b = Vector2(880, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5ck1y"]
+resource_local_to_scene = true
+b = Vector2(880, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cdqt2"]
+resource_local_to_scene = true
+b = Vector2(880, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nl4kv"]
+resource_local_to_scene = true
+b = Vector2(880, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nnj58"]
+b = Vector2(2560, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_criu7"]
+a = Vector2(0, 1600)
+b = Vector2(2560, 1600)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uniiq"]
+b = Vector2(0, 1600)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_a076f"]
+a = Vector2(2560, 0)
+b = Vector2(2560, 1600)
 
 [node name="Overworld" type="Node" unique_id=971802561]
 script = ExtResource("1_6jwp1")
 
-[node name="Left" type="Line2D" parent="." unique_id=1636505965]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(-21.429333, 769)
-scale = Vector2(3.3336763, 1)
-points = PackedVector2Array(0, 0, 200, 0)
-width = 80.0
-script = ExtResource("2_w0qnv")
+[node name="Rooms" type="Node" parent="." unique_id=791170956]
 
-[node name="Right" type="Line2D" parent="." unique_id=411337736]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(1919.0002, 774)
-scale = Vector2(3.3722222, 1)
-points = PackedVector2Array(0, 0, 200, 0)
-width = 80.0
-script = ExtResource("2_w0qnv")
+[node name="BorderWindow" parent="Rooms" unique_id=304158618 instance=ExtResource("3_criu7")]
 
-[node name="BorderWindow" parent="." unique_id=304158618 instance=ExtResource("3_criu7")]
+[node name="BorderWindow2" parent="Rooms" unique_id=2045585547 instance=ExtResource("3_criu7")]
+window_initial = Vector2i(3200, 440)
+locked = false
 
-[node name="RoomTrigger" parent="BorderWindow" index="2" unique_id=1378582814]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/BorderWindow2/Window/Camera2D" parent_id_path=PackedInt32Array(2045585547, 979188739) index="1" unique_id=1571857588]
+texture = ExtResource("3_uniiq")
+
+[node name="BorderWindow3" parent="Rooms" unique_id=449821327 instance=ExtResource("3_criu7")]
+window_initial = Vector2i(3200, 2040)
+locked = false
+
+[node name="BorderWindow4" parent="Rooms" unique_id=1408814643 instance=ExtResource("3_criu7")]
+window_initial = Vector2i(3200, 3640)
+
+[node name="BorderWindow5" parent="Rooms" unique_id=1270485333 instance=ExtResource("3_criu7")]
+window_initial = Vector2i(5760, 440)
+
+[node name="BorderWindow6" parent="Rooms" unique_id=404563706 instance=ExtResource("3_criu7")]
+window_initial = Vector2i(5760, 2040)
+
+[node name="Paths" type="Node" parent="." unique_id=1252803504]
+
+[node name="HPath" parent="Paths" unique_id=1585018008 instance=ExtResource("3_nnj58")]
+position = Vector2(1920, 800)
+
+[node name="Top" parent="Paths/HPath/StaticBody2D" parent_id_path=PackedInt32Array(1585018008, 2135009778) index="0" unique_id=1218475883]
+shape = SubResource("SegmentShape2D_xp5fb")
+
+[node name="Bottom" parent="Paths/HPath/StaticBody2D" parent_id_path=PackedInt32Array(1585018008, 2135009778) index="1" unique_id=380294544]
+shape = SubResource("SegmentShape2D_fysd7")
+
+[node name="HPath2" parent="Paths" unique_id=616917784 instance=ExtResource("3_nnj58")]
+position = Vector2(4480, 800)
+
+[node name="Top" parent="Paths/HPath2/StaticBody2D" parent_id_path=PackedInt32Array(616917784, 2135009778) index="0" unique_id=1218475883]
+shape = SubResource("SegmentShape2D_tyf74")
+
+[node name="Bottom" parent="Paths/HPath2/StaticBody2D" parent_id_path=PackedInt32Array(616917784, 2135009778) index="1" unique_id=380294544]
+shape = SubResource("SegmentShape2D_5dwah")
+
+[node name="VPath" parent="Paths" unique_id=2068284454 instance=ExtResource("3_nnj58")]
+position = Vector2(3840, 1160)
+rotation = 1.5707964
+points = PackedVector2Array(0, 0, 880, 0)
+
+[node name="Top" parent="Paths/VPath/StaticBody2D" parent_id_path=PackedInt32Array(2068284454, 2135009778) index="0" unique_id=1218475883]
+shape = SubResource("SegmentShape2D_hfh87")
+
+[node name="Bottom" parent="Paths/VPath/StaticBody2D" parent_id_path=PackedInt32Array(2068284454, 2135009778) index="1" unique_id=380294544]
+shape = SubResource("SegmentShape2D_i8gr5")
+
+[node name="VPath2" parent="Paths" unique_id=1258549069 instance=ExtResource("3_nnj58")]
+position = Vector2(6400, 1160)
+rotation = 1.5707964
+points = PackedVector2Array(0, 0, 880, 0)
+
+[node name="Top" parent="Paths/VPath2/StaticBody2D" parent_id_path=PackedInt32Array(1258549069, 2135009778) index="0" unique_id=1218475883]
+shape = SubResource("SegmentShape2D_85x44")
+
+[node name="Bottom" parent="Paths/VPath2/StaticBody2D" parent_id_path=PackedInt32Array(1258549069, 2135009778) index="1" unique_id=380294544]
+shape = SubResource("SegmentShape2D_5ck1y")
+
+[node name="VPath3" parent="Paths" unique_id=636482390 instance=ExtResource("3_nnj58")]
+position = Vector2(3840, 2760)
+rotation = 1.5707964
+points = PackedVector2Array(0, 0, 880, 0)
+
+[node name="Top" parent="Paths/VPath3/StaticBody2D" parent_id_path=PackedInt32Array(636482390, 2135009778) index="0" unique_id=1218475883]
+shape = SubResource("SegmentShape2D_cdqt2")
+
+[node name="Bottom" parent="Paths/VPath3/StaticBody2D" parent_id_path=PackedInt32Array(636482390, 2135009778) index="1" unique_id=380294544]
+shape = SubResource("SegmentShape2D_nl4kv")
+
+[node name="Triggers" type="Node" parent="." unique_id=1946400750]
+
+[node name="Top" type="Area2D" parent="Triggers" unique_id=970516089]
 collision_layer = 0
 collision_mask = 8
 
-[editable path="BorderWindow"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Top" unique_id=721482157]
+shape = SubResource("SegmentShape2D_nnj58")
+
+[node name="Bottom" type="Area2D" parent="Triggers" unique_id=581845659]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Bottom" unique_id=1435549501]
+shape = SubResource("SegmentShape2D_criu7")
+
+[node name="Left" type="Area2D" parent="Triggers" unique_id=1247769764]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Left" unique_id=2085904514]
+shape = SubResource("SegmentShape2D_uniiq")
+
+[node name="Right" type="Area2D" parent="Triggers" unique_id=1247992174]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Right" unique_id=289934302]
+shape = SubResource("SegmentShape2D_a076f")
+
+[connection signal="area_entered" from="Triggers/Top" to="." method="_on_top_area_entered"]
+[connection signal="area_entered" from="Triggers/Bottom" to="." method="_on_bottom_area_entered"]
+[connection signal="area_entered" from="Triggers/Left" to="." method="_on_left_area_entered"]
+[connection signal="area_entered" from="Triggers/Right" to="." method="_on_right_area_entered"]
+
+[editable path="Rooms/BorderWindow"]
+[editable path="Rooms/BorderWindow2"]
+[editable path="Paths/HPath"]
+[editable path="Paths/HPath2"]
+[editable path="Paths/VPath"]
+[editable path="Paths/VPath2"]
+[editable path="Paths/VPath3"]

@@ -1,7 +1,7 @@
 extends NodeBase
 
 var window_elements = []
-var window_initial: Vector2i = Vector2i(0, 0)
+@export var window_initial: Vector2i
 # Window shake
 var decay: float = 0.8
 var max_offset: Vector2 = Vector2(100, 75)
@@ -17,7 +17,10 @@ var trauma_power: int = 2
 
 func _ready() -> void:
 	window.world_2d = get_window().world_2d
-	window_initial = window.position
+	if (window_initial):
+		window.position = window_initial
+	else:
+		window_initial = window.position
 	_on_window_size_changed()
 	
 	
@@ -25,7 +28,8 @@ func _process(delta: float) -> void:
 	if (!window): return
 	@warning_ignore("integer_division")
 	area_2d.position = Vector2(window.position) + Vector2(window.size / 2)
-	
+	if room_trigger:
+		room_trigger.position = area_2d.position
 	if locked:
 		window.position = window_initial
 		
@@ -46,6 +50,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	area.get_parent().exit_window()
 
 func add_trauma(amount) -> void:
+	print(window_initial)
 	trauma = min(trauma + amount, 1.0)
 
 func shake() -> void:

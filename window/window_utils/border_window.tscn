@@ -39,18 +39,26 @@ anchor_mode = 0
 [node name="TileMapLayer" parent="Window/Camera2D" unique_id=1377398748 instance=ExtResource("3_vt1yh")]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=913116292]
+collision_layer = 0
 collision_mask = 8193
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=980279914]
 shape = SubResource("RectangleShape2D_lytty")
 
 [node name="RoomTrigger" type="Area2D" parent="." unique_id=1378582814]
-position = Vector2(966, 794)
+visible = false
+position = Vector2(258, -5)
+collision_layer = 0
+collision_mask = 8
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomTrigger" unique_id=811925051]
+position = Vector2(-532, -9)
 shape = SubResource("CircleShape2D_drbut")
 
 [node name="Sprite2D" type="Sprite2D" parent="RoomTrigger" unique_id=1512427251]
+position = Vector2(-532, -9)
 texture = ExtResource("4_vy0xf")
 
 [connection signal="size_changed" from="Window" to="." method="_on_window_size_changed"]
