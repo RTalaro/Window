@@ -42,6 +42,9 @@ func _process(_delta: float) -> void:
 	
 	velocity = window.position - last_position
 	
+	if tweening:
+		rigid_body_2d.position = area_2d.position
+		
 	if !tweening and rigid_body_2d.move_and_collide(velocity):
 		window.in_window = true
 		area_2d.position = rigid_body_2d.position

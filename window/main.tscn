@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://cx5io3g7h2bos"]
+
+[ext_resource type="Script" uid="uid://dr45gnkmcph1s" path="res://main.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://kjqio0e41ry2" path="res://title.tscn" id="3_h2yge"]
+
+[sub_resource type="Animation" id="Animation_h2yge"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(200, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Map:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(100, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_1bvp3"]
+resource_name = "ease in minimize"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(2.2973967, 0.46651748),
+"update": 0,
+"values": [Vector2i(1280, 720), Vector2i(50, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lquwl"]
+resource_name = "ease out minimize"
+length = 0.368
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(0.3535543, 1.525882e-05),
+"update": 0,
+"values": [Vector2i(300, 200), Vector2i(50, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7mycd"]
+resource_name = "grow map"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Map:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2i(50, 0), Vector2i(1280, 720)]
+}
+
+[sub_resource type="Animation" id="Animation_0xm2m"]
+resource_name = "grow then minimize"
+length = 0.68
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.6667),
+"transitions": PackedFloat32Array(0.63728034, 2.928169, 2.07053),
+"update": 0,
+"values": [Vector2i(1280, 720), Vector2i(1500, 800), Vector2i(50, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1bvp3"]
+_data = {
+&"RESET": SubResource("Animation_h2yge"),
+&"ease in minimize": SubResource("Animation_1bvp3"),
+&"ease out minimize": SubResource("Animation_lquwl"),
+&"grow map": SubResource("Animation_7mycd"),
+&"grow then minimize": SubResource("Animation_0xm2m")
+}
+
+[node name="Main" type="Control" unique_id=1225957967]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_0xm2m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2145319131]
+libraries/ = SubResource("AnimationLibrary_1bvp3")
+
+[node name="Timer" type="Timer" parent="." unique_id=1631712226]
+
+[node name="Title" parent="." unique_id=731644339 instance=ExtResource("3_h2yge")]
+size = Vector2i(200, 200)
+theme = null
+
+[node name="Map" type="Window" parent="." unique_id=427656643]
+oversampling_override = 1.0
+visible = false

@@ -2,18 +2,32 @@ extends Node
 
 @export var enemy_list : Array[PackedScene]
 var current_wave: int = 0
-var wave_count: int = 3 # How many waves there are
+var wave_count: int = 2 # How many waves there are
 
 func _ready() -> void:
 	GlobalSignals.enemy_dead.connect(enemy_dead)
 	randomize()
 
 func spawn_enemy() -> void:
-	print(enemy_list.pick_random())
 	var enemy = enemy_list.pick_random().instantiate()
-	enemy.position = get_window().size / 2
+	if enemy is EnemyBase:
+		enemy.position = get_window().size / 2 + Vector2i(200, 0)
 	add_child(enemy)
 	
+	# Try to spawn in a second enemy
+	enemy = enemy_list.pick_random().instantiate()
+	if enemy is EnemyBase:
+		enemy.position = get_window().size / 2 + Vector2i(0, -100)
+	add_child(enemy)
+	
+	if randf() < 0.33:
+		enemy = enemy_list.pick_random().instantiate()
+		if enemy is NodeBase:
+			return
+		if enemy is EnemyBase:
+			enemy.position = get_window().size / 2 + Vector2i(0, 100)
+		add_child(enemy)
+		
 func enemy_dead() -> void:
 	print("an enemy died")
 	print(get_child_count())

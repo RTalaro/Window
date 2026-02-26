@@ -17,7 +17,7 @@ ITEM = ExtResource("2_rsan4")
 
 [node name="Window" type="Window" parent="." unique_id=1273966553]
 oversampling_override = 1.0
-position = Vector2i(-400, 36)
+position = Vector2i(-400, 0)
 unresizable = true
 theme = ExtResource("3_3vw8i")
 script = ExtResource("1_tf81c")

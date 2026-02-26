@@ -15,7 +15,10 @@ var room_flags = {"BorderWindow1": true,
 					"BorderWindow5": false,
 					"BorderWindow6": true} # Set to true if the room is completed
 
-func _ready() -> void:
+#func _ready() -> void:
+	#create_game()
+
+func create_game() -> void:
 	var p: Node = PLAYER.instantiate()
 	p.position = get_window().size / 2
 	p.position.x -= 200

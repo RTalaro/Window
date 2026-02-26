@@ -1,6 +1,6 @@
 extends ItemBase
 
-var attack_damage: float = 100.0
+var attack_damage: float = 50.0
 var knockback_force: float = 100.0
 var stun_time: float = 10.0
 var triggered: bool = false
@@ -56,3 +56,4 @@ func recharge_mine() -> void:
 	trigger_area.monitoring = true
 	explosion_area.monitoring = true
 	triggered = false
+	sprite_2d.frame = 0

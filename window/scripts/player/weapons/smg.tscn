@@ -9,7 +9,8 @@ texture = ExtResource("1_6kdgy")
 script = ExtResource("2_k6g8t")
 cooldown = 0.1
 automatic = true
-bullet_damage = 1
+bullet_speed = 500.0
+bullet_damage = 2
 
 [node name="BulletSpawn" type="Marker2D" parent="." unique_id=1654979440]
 position = Vector2(40, 0)

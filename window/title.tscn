@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://kjqio0e41ry2"]
+
+[ext_resource type="Theme" uid="uid://cbu701eo6j6jo" path="res://themes/Modern11/Modern11.tres" id="1_y7k74"]
+
+[node name="Title" type="Window" unique_id=1732377371]
+transparent_bg = true
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(1280, 720)
+transparent = true
+theme = ExtResource("1_y7k74")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1336283763]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=389249359]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_right = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=2038219258]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacing" type="Label" parent="VBoxContainer" unique_id=1069891544]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=151936358]
+layout_mode = 2
+text = "Play"
+
+[node name="Options" type="Button" parent="VBoxContainer" unique_id=597632487]
+layout_mode = 2
+text = "Options"
+
+[node name="Credits" type="Button" parent="VBoxContainer" unique_id=32435017]
+layout_mode = 2
+text = "Credits"

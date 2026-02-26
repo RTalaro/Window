@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dy18dukxbnq4y" path="res://scripts/enemy/enemy_window/enemy_window.gd" id="1_sbxck"]
 [ext_resource type="PackedScene" uid="uid://gsgikxdbhgvg" path="res://scripts/health_component.tscn" id="2_axr77"]
 [ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="2_crqq7"]
+[ext_resource type="Theme" uid="uid://cbu701eo6j6jo" path="res://themes/Modern11/Modern11.tres" id="2_d1hrm"]
 [ext_resource type="PackedScene" uid="uid://bldr7hxtauweo" path="res://scripts/hitbox_component.tscn" id="3_crqq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1hrm"]
@@ -18,6 +19,7 @@ position = Vector2i(0, 36)
 size = Vector2i(128, 128)
 unresizable = true
 always_on_top = true
+theme = ExtResource("2_d1hrm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Window" unique_id=146896543]
 texture = ExtResource("2_crqq7")

@@ -124,6 +124,7 @@ collision_mask = 528512
 script = ExtResource("1_ricjt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1587168672]
+modulate = Color(1, 0.56078434, 0, 1)
 texture = ExtResource("2_ko3tc")
 hframes = 3
 vframes = 3
@@ -136,13 +137,16 @@ collision_layer = 0
 shape = SubResource("CircleShape2D_4gyqm")
 
 [node name="EnemyOverlap" type="CollisionShape2D" parent="." unique_id=2022235086]
+visible = false
 position = Vector2(8, -0.33333325)
 shape = SubResource("RectangleShape2D_qi2p4")
 
 [node name="HealthComponent" parent="." unique_id=1166189687 instance=ExtResource("3_ko3tc")]
+visible = false
 MAX_HEALTH = 30.0
 
 [node name="HitboxComponent" parent="." unique_id=706822167 node_paths=PackedStringArray("health_component") instance=ExtResource("4_ir1ur")]
+visible = false
 collision_layer = 64
 health_component = NodePath("../HealthComponent")
 

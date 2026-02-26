@@ -9,7 +9,12 @@ func _ready() -> void:
 	for i in $Paths.get_children():
 		i.modulate = Color(1, 1, 1, 0)
 
-	if GlobalData.player:
+	if !GlobalData.player:
+		GlobalData.create_game()
+		GlobalData.player.reparent(self)
+		player = GlobalData.player
+		game_to_overworld()
+	else:
 		GlobalData.player.reparent(self)
 		player = GlobalData.player
 		game_to_overworld()
