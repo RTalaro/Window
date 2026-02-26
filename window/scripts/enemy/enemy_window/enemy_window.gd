@@ -28,7 +28,7 @@ func shoot() -> void:
 	var new_bullet: Node = BULLET.instantiate()
 	new_bullet.target = 4
 	new_bullet.attack_damage = 1
-		@warning_ignore("integer_division")
+	@warning_ignore("integer_division")
 	new_bullet.global_position = window.position + (window.size / 2)
 	new_bullet.look_at(GlobalData.player.global_position)
 	var dir = GlobalData.player.global_position - Vector2(window.position)
