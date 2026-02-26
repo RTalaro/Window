@@ -3,6 +3,7 @@ extends Sprite2D
 @export var cooldown: float = 1.0
 @export var automatic: bool = false
 @export var bullet_speed: float = 400.0
+@export var bullet_damage: int = 10
 
 var can_shoot: bool = true
 
@@ -22,6 +23,7 @@ func shoot() -> void:
 		timer.start(cooldown)
 		var new_bullet: Node = BULLET.instantiate()
 		new_bullet.speed = bullet_speed
+		new_bullet.attack_damage = bullet_damage
 		new_bullet.target = 7
 		new_bullet.position = bullet_spawn.global_position
 		new_bullet.look_at(get_global_mouse_position())

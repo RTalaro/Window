@@ -23,8 +23,16 @@ func _init() -> void:
 
 
 func movement(delta):
+	if velocity.x > 0:
+		sprite.flip_h = false
+	else:
+		sprite.flip_h = true
 	if chasing and player:
 		var to_player: Vector2 = player.global_position - global_position
+		if to_player.x > 0:
+			sprite.flip_h = false
+		else:
+			sprite.flip_h = true
 		var dist: float = to_player.length()
 		var dir: Vector2 = to_player.normalized()
 

@@ -2,7 +2,7 @@ extends ItemBase
 
 const BULLET: PackedScene = preload("res://scripts/player/weapons/bullet.tscn")
 
-@export var target: CharacterBody2D
+@export var target: Node
 @export var window: Window
 
 @onready var turret_detection = $TurretDetection

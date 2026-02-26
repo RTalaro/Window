@@ -20,13 +20,15 @@ var stun_time: float
 
 var health: int = 30
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var damage_component: Area2D = $DamageComponent
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var enemy_player_detection: Area2D = $EnemyPlayerDetection
 
 
 func _ready() -> void:
+	animation_player.play("moving")
 	damage_component.area_entered.connect(_on_damage_area_entered)
 	health_component.set_init_health(health)
 	enemy_player_detection.body_entered.connect(_on_detection_area_body_entered)

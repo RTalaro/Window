@@ -2,19 +2,26 @@
 
 [ext_resource type="Script" uid="uid://dy18dukxbnq4y" path="res://scripts/enemy/enemy_window/enemy_window.gd" id="1_sbxck"]
 [ext_resource type="PackedScene" uid="uid://gsgikxdbhgvg" path="res://scripts/health_component.tscn" id="2_axr77"]
+[ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="2_crqq7"]
 [ext_resource type="PackedScene" uid="uid://bldr7hxtauweo" path="res://scripts/hitbox_component.tscn" id="3_crqq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1hrm"]
-size = Vector2(129, 145)
+size = Vector2(144, 164)
 
 [node name="EnemyWindow" type="Node" unique_id=375421477]
 script = ExtResource("1_sbxck")
 
 [node name="Window" type="Window" parent="." unique_id=2067289046]
 oversampling_override = 1.0
+title = "Enemy"
 position = Vector2i(0, 36)
+size = Vector2i(128, 128)
 unresizable = true
 always_on_top = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Window" unique_id=146896543]
+texture = ExtResource("2_crqq7")
+centered = false
 
 [node name="HealthComponent" parent="." unique_id=1166189687 instance=ExtResource("2_axr77")]
 MAX_HEALTH = 30.0
@@ -24,7 +31,7 @@ collision_layer = 64
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=2081422212]
-position = Vector2(54.5, 62.5)
+position = Vector2(64, 86)
 shape = SubResource("RectangleShape2D_d1hrm")
 
 [node name="Timer" type="Timer" parent="." unique_id=823023478]

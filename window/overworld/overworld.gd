@@ -48,7 +48,7 @@ func overworld_to_game(window: NodeBase) -> void:
 func move_screen(pos: Vector2i) -> void:
 	GlobalData.offset += pos
 	$Triggers.call_deferred("set_process_mode", ProcessMode.PROCESS_MODE_DISABLED)
-	player.can_shoot = false
+	GlobalData.can_shoot = false
 	await get_tree().process_frame
 	for i in $Rooms.get_children():
 		i.locked = false
@@ -64,7 +64,7 @@ func move_screen(pos: Vector2i) -> void:
 		
 	await get_tree().create_timer(1.0).timeout
 	$Triggers.process_mode = Node.PROCESS_MODE_INHERIT
-	player.can_shoot = true
+	GlobalData.can_shoot = true
 	for i in $Rooms.get_children():
 		i.window_initial = i.window.position
 

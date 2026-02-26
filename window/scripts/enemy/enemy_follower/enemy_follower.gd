@@ -19,5 +19,9 @@ func movement(delta):
 	if chasing and player:
 		var dir = (player.global_position - global_position).normalized()
 		velocity = dir * speed
+		if velocity.x > 0:
+			sprite.flip_h = false
+		else:
+			sprite.flip_h = true
 	else:
 		wander(delta)

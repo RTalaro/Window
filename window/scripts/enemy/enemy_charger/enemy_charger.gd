@@ -27,11 +27,10 @@ func _init() -> void:
 
 
 func movement(delta):
-	animated_sprite.play("default")
 	if velocity.x > 0:
-		animated_sprite.flip_h = false
+		sprite.flip_h = false
 	else:
-		animated_sprite.flip_h = true
+		sprite.flip_h = true
 	if chasing and player:
 
 		if charging:
@@ -46,9 +45,9 @@ func movement(delta):
 		else:
 			var to_player: Vector2 = player.global_position - global_position
 			if to_player.x > 0:
-				animated_sprite.flip_h = false
+				sprite.flip_h = false
 			else:
-				animated_sprite.flip_h = true
+				sprite.flip_h = true
 			var dist: float = to_player.length()
 			var dir: Vector2 = to_player.normalized()
 

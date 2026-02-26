@@ -20,10 +20,13 @@ func _physics_process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("Left Click"):
+			print("window first")
 			mouse_offset = event.position
+			GlobalData.can_shoot = false
 			dragged = true
 			stop_movement()
 		if event.is_action_released("Left Click"):
+			GlobalData.can_shoot = true
 			dragged = false
 			start_movement()
 

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://vik1m25hw20e" path="res://helper/wall.tscn" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://dvocrqgbuegeo" path="res://scripts/enemy/enemy_follower/enemy_follower.tscn" id="6_dg77c"]
 [ext_resource type="PackedScene" uid="uid://c3sdw3yvsrj3q" path="res://helper/turret.tscn" id="6_mfdv2"]
+[ext_resource type="PackedScene" uid="uid://chakevayyrqil" path="res://scripts/enemy/enemy_window/enemy_window.tscn" id="7_iotsf"]
 [ext_resource type="PackedScene" uid="uid://5sgxumt6fmhr" path="res://scripts/enemy/enemy_shooter_basic/enemy_shooter_basic.tscn" id="7_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://v3b8aogn82hd" path="res://helper/containers/inside_container.tscn" id="8_kek77"]
 
@@ -18,6 +19,8 @@ script = ExtResource("1_lquwl")
 [node name="EnemyManager" type="Node" parent="." unique_id=949713376]
 script = ExtResource("4_4c57u")
 enemy_list = Array[PackedScene]([ExtResource("5_kek77"), ExtResource("6_dg77c"), ExtResource("7_ycdy4"), ExtResource("4_5vw27")])
+
+[node name="EnemyWindow" parent="EnemyManager" unique_id=375421477 instance=ExtResource("7_iotsf")]
 
 [node name="ItemManager" type="Node" parent="." unique_id=561261181]
 script = ExtResource("5_5vw27")

@@ -10,11 +10,10 @@ func damage(attack: Attack):
 		get_parent().knockback = attack.knockback_dir * attack.knockback_force
 		get_parent().knockback_timer = attack.knockback_timer
 	
+	if get_parent() is Player:
+		$ProgressBar.value = health_component.health
 	# Not great implementation, but gives i-frames to the player
 	if get_parent() is Player or ItemBase:
 		set_deferred("monitoring", false)
 		await get_tree().create_timer(1.0).timeout
 		set_deferred("monitoring", true)
-		
-	if get_parent() is Player:
-		$ProgressBar.value = health_component.health

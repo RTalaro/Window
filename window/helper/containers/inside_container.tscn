@@ -14,7 +14,7 @@ ITEM = ExtResource("2_umb1n")
 
 [node name="Window" type="Window" parent="." unique_id=790258661]
 oversampling_override = 1.0
-position = Vector2i(-400, 28)
+position = Vector2i(0, 28)
 always_on_top = true
 theme = ExtResource("3_umb1n")
 script = ExtResource("1_hlokq")

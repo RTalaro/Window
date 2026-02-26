@@ -25,16 +25,15 @@ func _process(_delta: float) -> void:
 	else:
 		current_weapon.flip_v = true
 	look_at(get_global_mouse_position())
-	if !get_parent().can_shoot: return
+	if !GlobalData.can_shoot: return
+	if Input.is_action_just_pressed("Slot1"):
+		swap_weapon()
+	if Input.is_action_just_pressed("Slot2"):
+		swap_weapon()
+	if Input.is_action_just_pressed("Scroll"):
+		swap_weapon()
 	if Input.is_action_pressed("Left Click"):
 		current_weapon.shoot()
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Slot1"):
-		swap_weapon()
-	if event.is_action_pressed("Slot2"):
-		swap_weapon()
-
 
 func swap_weapon() -> void:
 	var temp: Sprite2D = current_weapon

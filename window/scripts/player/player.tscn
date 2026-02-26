@@ -561,6 +561,12 @@ radius = 112.00446
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(28, 51)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p83wy"]
+bg_color = Color(0.94192946, 0.39581534, 0.43495533, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4jq6"]
+bg_color = Color(0.109850936, 0.7112887, 0.42174992, 1)
+
 [sub_resource type="Curve" id="Curve_p83wy"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -621,8 +627,11 @@ offset_left = -44.0
 offset_top = -57.333336
 offset_right = 44.66667
 offset_bottom = -30.333336
-max_value = 10.0
-value = 10.0
+theme_override_styles/background = SubResource("StyleBoxFlat_p83wy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_g4jq6")
+max_value = 6.0
+step = 1.0
+value = 6.0
 show_percentage = false
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=940997698]
