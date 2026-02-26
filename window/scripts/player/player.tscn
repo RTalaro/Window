@@ -616,6 +616,15 @@ health_component = NodePath("../HealthComponent")
 position = Vector2(6, 2.5)
 shape = SubResource("RectangleShape2D_onrkg")
 
+[node name="ProgressBar" type="ProgressBar" parent="HitboxComponent" unique_id=1813524321]
+offset_left = -44.0
+offset_top = -57.333336
+offset_right = 44.66667
+offset_bottom = -30.333336
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=940997698]
 position = Vector2(0, 5.3333335)
 emitting = false

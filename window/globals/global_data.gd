@@ -13,9 +13,9 @@ func _ready() -> void:
 	add_child(p)
 	player = p
 	
-	var bw: Node = BORDER_WINDOW.instantiate()
-	add_child(bw)
-	game_window = bw
+	#var bw: Node = BORDER_WINDOW.instantiate()
+	#add_child(bw)
+	#game_window = bw
 
 func update_instance(p: Player, window: NodeBase):
 	# Not sure if this is redundant, but I'm just worried about 

@@ -15,3 +15,6 @@ func damage(attack: Attack):
 		set_deferred("monitoring", false)
 		await get_tree().create_timer(1.0).timeout
 		set_deferred("monitoring", true)
+		
+	if get_parent() is Player:
+		$ProgressBar.value = health_component.health
