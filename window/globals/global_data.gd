@@ -4,6 +4,7 @@ const PLAYER: PackedScene = preload("res://scripts/player/player.tscn")
 
 var player: Player
 var game_window: NodeBase
+var offset: Vector2i
 
 func _ready() -> void:
 	var p: Node = PLAYER.instantiate()

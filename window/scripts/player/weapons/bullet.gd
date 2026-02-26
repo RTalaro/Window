@@ -5,16 +5,23 @@ extends CharacterBody2D
 @export var piercing: int = 0
 @export var target_direction: Vector2 = Vector2(1, 0)
 
-var attack_damage: float = 10.0
+var attack_damage: int = 10
 var knockback_force: float = 150.0
 var stun_time: float = 10.0
 var knockback_timer: float = 0.12
 
 @export var target: int = 1
+
 @onready var target_collision: Area2D = $TargetCollision
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void: 
 	target_collision.set_collision_mask_value(target, true)
+	
+	# Hard coding it for now, either use player bullet or enemy bullet
+	if target == 7:
+		sprite.play("player_bullet")
+		
 	despawn()
 
 func _physics_process(_delta: float) -> void:
@@ -35,11 +42,7 @@ func _on_target_collision_area_entered(area: Area2D):
 		var hitbox: HitboxComponent = area
 		
 		var attack: Attack = Attack.new()
-		attack.attack_damage = attack_damage
-		attack.knockback_dir = (area.position - position).normalized()
-		attack.knockback_force = knockback_force
-		attack.knockback_timer = knockback_timer
-		attack.attack_position = global_position
-		attack.stun_time = stun_time
+		attack.set_variables(attack_damage, global_position, stun_time,
+		(area.position - position).normalized(), knockback_force, knockback_timer)
 		
 		hitbox.damage(attack)

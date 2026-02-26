@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cjeut2mp12wo7" path="res://assets/art/player/player_walk_back.png" id="5_ws782"]
 [ext_resource type="Texture2D" uid="uid://d1f6kxnlc6s00" path="res://assets/art/player/player_walk_front.png" id="6_0sm0w"]
 [ext_resource type="Texture2D" uid="uid://bpf05xgpk3g5m" path="res://assets/art/player/player_walk_side.png" id="7_g0bbo"]
+[ext_resource type="Texture2D" uid="uid://dy6rf73s0km4x" path="res://assets/temp_art/player_bullet.png" id="8_p83wy"]
 [ext_resource type="PackedScene" uid="uid://bldr7hxtauweo" path="res://scripts/hitbox_component.tscn" id="12_g0bbo"]
 [ext_resource type="PackedScene" uid="uid://gsgikxdbhgvg" path="res://scripts/health_component.tscn" id="12_j77er"]
 [ext_resource type="Texture2D" uid="uid://la8cmdsb0kwm" path="res://assets/temp_art/temp_tileset.png" id="13_j77er"]
@@ -585,21 +586,21 @@ script = ExtResource("1_4flbx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2093589252]
 sprite_frames = SubResource("SpriteFrames_yw30f")
 animation = &"idle_side"
-frame_progress = 0.83079743
+frame_progress = 0.2312799
 
 [node name="PlayerWallCollision" type="CollisionShape2D" parent="." unique_id=623934303]
-visible = false
 position = Vector2(6, 2.5)
 shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="PlayerDetectionRadius" type="Area2D" parent="." unique_id=1975407611]
-visible = false
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionRadius" unique_id=1979935630]
 shape = SubResource("CircleShape2D_rkbax")
 
-[node name="WeaponHandler" type="Node2D" parent="." unique_id=1789350146]
+[node name="WeaponHandler" type="Sprite2D" parent="." unique_id=1909650175]
+texture = ExtResource("8_p83wy")
+offset = Vector2(25, 0)
 script = ExtResource("3_yw30f")
 slot_one = ExtResource("3_g1dw6")
 slot_two = ExtResource("5_qjkh3")
@@ -608,7 +609,6 @@ slot_two = ExtResource("5_qjkh3")
 MAX_HEALTH = 6.0
 
 [node name="HitboxComponent" parent="." unique_id=706822167 node_paths=PackedStringArray("health_component") instance=ExtResource("12_g0bbo")]
-visible = false
 collision_layer = 8
 health_component = NodePath("../HealthComponent")
 
@@ -617,6 +617,7 @@ position = Vector2(6, 2.5)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=940997698]
+position = Vector2(0, 5.3333335)
 emitting = false
 amount = 32
 texture = ExtResource("13_j77er")

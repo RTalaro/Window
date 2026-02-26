@@ -1,7 +1,27 @@
 [gd_scene format=3 uid="uid://dfm184yjc1m3x"]
 
-[ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="1_v7oki"]
 [ext_resource type="Script" uid="uid://6poapt6ruuxk" path="res://scripts/player/weapons/bullet.gd" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://c7ie4rdkojmpu" path="res://assets/temp_art/enemy_bullet.png" id="2_3v00d"]
+[ext_resource type="Texture2D" uid="uid://dy6rf73s0km4x" path="res://assets/temp_art/player_bullet.png" id="2_64t1g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xew6j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3v00d")
+}],
+"loop": false,
+"name": &"enemy_bullet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_64t1g")
+}],
+"loop": false,
+"name": &"player_bullet",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_46f7d"]
 
@@ -15,9 +35,10 @@ collision_layer = 131072
 collision_mask = 0
 script = ExtResource("1_v8qja")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=779062050]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_v7oki")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1599835990]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_xew6j")
+animation = &"enemy_bullet"
 
 [node name="WallCollision" type="CollisionShape2D" parent="." unique_id=1375083308]
 shape = SubResource("RectangleShape2D_46f7d")

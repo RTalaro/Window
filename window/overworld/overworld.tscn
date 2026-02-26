@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cyv50usj17w83" path="res://overworld/overworld.gd" id="1_6jwp1"]
 [ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="3_criu7"]
 [ext_resource type="PackedScene" uid="uid://ckrlk8hasylta" path="res://overworld/path.tscn" id="3_nnj58"]
-[ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="3_uniiq"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_xp5fb"]
 resource_local_to_scene = true
@@ -68,14 +67,9 @@ script = ExtResource("1_6jwp1")
 
 [node name="BorderWindow2" parent="Rooms" unique_id=2045585547 instance=ExtResource("3_criu7")]
 window_initial = Vector2i(3200, 440)
-locked = false
-
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/BorderWindow2/Window/Camera2D" parent_id_path=PackedInt32Array(2045585547, 979188739) index="1" unique_id=1571857588]
-texture = ExtResource("3_uniiq")
 
 [node name="BorderWindow3" parent="Rooms" unique_id=449821327 instance=ExtResource("3_criu7")]
 window_initial = Vector2i(3200, 2040)
-locked = false
 
 [node name="BorderWindow4" parent="Rooms" unique_id=1408814643 instance=ExtResource("3_criu7")]
 window_initial = Vector2i(3200, 3640)

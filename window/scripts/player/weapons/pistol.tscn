@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dn4m6kj4qd78a"]
 
-[ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="1_vk1bi"]
+[ext_resource type="Texture2D" uid="uid://cxt315itnudih" path="res://assets/temp_art/pistol.png" id="1_woiq4"]
 [ext_resource type="Script" uid="uid://yj31lcpdnn7i" path="res://scripts/player/weapons/gun.gd" id="2_dk5gl"]
 
 [node name="Gun" type="Sprite2D" unique_id=390690923]
-modulate = Color(0, 0, 1, 1)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_vk1bi")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_woiq4")
 script = ExtResource("2_dk5gl")
+bullet_speed = 800.0
 
 [node name="BulletSpawn" type="Marker2D" parent="." unique_id=1654979440]
 position = Vector2(40, 0)

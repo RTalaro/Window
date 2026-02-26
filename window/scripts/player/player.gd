@@ -7,6 +7,9 @@ var sprite_action: String = "idle"
 var sprite_direction: String = "front"
 var animation_name: String
 
+var can_move: bool = true
+var can_shoot: bool = true
+
 @export var MAX_SPEED: float = 400.0
 @export var ACCELERATION: float = 50.0
 @export var FRICTION: float = 25.0
@@ -26,6 +29,7 @@ func _physics_process(delta: float) -> void:
 	#position.y = clamp(position.y, 0, window.size.y)
 	
 func get_input(delta: float) -> void:
+	if !can_move: return
 	var input_direction: Vector2 = Vector2(Input.get_action_strength("Right") - Input.get_action_strength("Left"),
 	Input.get_action_strength("Down") - Input.get_action_strength("Up")).normalized()
 	
@@ -42,21 +46,11 @@ func update_animation(input_direction: Vector2) -> void:
 		sprite_action = "walk"
 	else:
 		sprite_action = "idle"
-	var horizontal_dir = Input.get_axis("Left", "Right")
-	var vertical_dir = Input.get_axis("Up", "Down")
-	match horizontal_dir:
-		-1.0:
-			# True = facing left
-			sprite.flip_h = true
-			sprite_direction = "side"
-		1.0:
-			sprite.flip_h = false
-			sprite_direction = "side"
-		0.0:
-			match vertical_dir:
-				-1.0:
-					sprite_direction = "back"
-				1.0:
-					sprite_direction = "front"
+	if get_global_mouse_position().x >= position.x:
+		sprite.flip_h = false
+		sprite_direction = "side"
+	else:
+		sprite.flip_h = true
+		sprite_direction = "side"
 	animation_name = sprite_action + "_" + sprite_direction
 	sprite.play(animation_name)
