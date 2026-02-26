@@ -5,6 +5,7 @@ var window: Window
 
 var sprite_action: String = "idle"
 var sprite_direction: String = "front"
+var sprite_side: String = ""
 var animation_name: String
 
 var can_move: bool = true
@@ -43,14 +44,30 @@ func get_input(delta: float) -> void:
 
 func update_animation(input_direction: Vector2) -> void:
 	if input_direction:
-		sprite_action = "walk"
+		sprite_action = "run_"
 	else:
-		sprite_action = "idle"
-	if get_global_mouse_position().x >= position.x:
+		sprite_action = "idle_"
+	
+	var angle: float = rad_to_deg(global_position.angle_to_point(get_global_mouse_position()))
+	if angle > 0 and angle < 45:
+		sprite_direction = "front_side"
+	elif angle > 45 and angle < 135:
+		sprite_direction = "front"
+	elif angle > 135 and angle < 180:
+		sprite_direction = "front_side"
+		#sprite.flip_h = true
+	elif angle < 0 and angle > -45:
+		sprite_direction = "back_side"
+		#sprite.flip_h = true
+	elif angle < -45 and angle > -135:
+		sprite_direction = "back"
+	elif angle < -135 and angle > -180:
+		sprite_direction = "back_side"
+		#sprite.flip_h = true
+	if get_global_mouse_position().x >= global_position.x:
 		sprite.flip_h = false
-		sprite_direction = "side"
 	else:
 		sprite.flip_h = true
-		sprite_direction = "side"
-	animation_name = sprite_action + "_" + sprite_direction
+
+	animation_name = sprite_action + sprite_direction
 	sprite.play(animation_name)
