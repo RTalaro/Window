@@ -6,8 +6,10 @@ var wave_count: int = 3 # How many waves there are
 
 func _ready() -> void:
 	GlobalSignals.enemy_dead.connect(enemy_dead)
+	randomize()
 
 func spawn_enemy() -> void:
+	print(enemy_list.pick_random())
 	var enemy = enemy_list.pick_random().instantiate()
 	enemy.position = get_window().size / 2
 	add_child(enemy)

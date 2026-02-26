@@ -23,4 +23,7 @@ func damage(attack: Attack):
 			get_parent().queue_free()
 			await get_parent().tree_exited
 			GlobalSignals.enemy_dead.emit()
+		if get_parent() is ItemBase:
+			get_parent().rebuild_wall()
+			return
 		get_parent().queue_free()

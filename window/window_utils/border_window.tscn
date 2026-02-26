@@ -51,12 +51,9 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomTrigger" unique_id=811925051]
-position = Vector2(-532, -9)
 shape = SubResource("CircleShape2D_drbut")
 
 [node name="Sprite2D" type="Sprite2D" parent="RoomTrigger" unique_id=1512427251]
-visible = false
-position = Vector2(-532, -9)
 texture = ExtResource("4_vy0xf")
 
 [connection signal="size_changed" from="Window" to="." method="_on_window_size_changed"]

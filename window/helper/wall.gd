@@ -15,6 +15,7 @@ func _process(_delta: float) -> void:
 		position = window.position + Vector2i(sprite_2d.get_rect().size / 2)
 
 func rebuild_wall() -> void:
+	gpu_particles_2d.restart()
 	sprite_2d.visible = false
 	wall_collilsion.set_deferred("disabled", true)
 	hitbox_collision.set_deferred("disabled", true)

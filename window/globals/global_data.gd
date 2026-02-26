@@ -8,9 +8,17 @@ var game_window: NodeBase
 var offset: Vector2i
 var can_shoot: bool = true
 
+var room_flags = {"BorderWindow1": true,
+					"BorderWindow2": false,
+					"BorderWindow3": false,
+					"BorderWindow4": true,
+					"BorderWindow5": false,
+					"BorderWindow6": true} # Set to true if the room is completed
+
 func _ready() -> void:
 	var p: Node = PLAYER.instantiate()
 	p.position = get_window().size / 2
+	p.position.x -= 200
 	add_child(p)
 	player = p
 	

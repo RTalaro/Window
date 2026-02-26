@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://64fkubsho6iv"]
+
+[ext_resource type="PackedScene" uid="uid://ccexg66yj5j51" path="res://window_utils/border_window.tscn" id="1_13qwt"]
+[ext_resource type="Script" uid="uid://cis2h0rb7rivs" path="res://playtest_win.gd" id="1_e4dsr"]
+
+[node name="Node" type="Node" unique_id=1423150842]
+script = ExtResource("1_e4dsr")
+
+[node name="BorderWindow" parent="." unique_id=304158618 instance=ExtResource("1_13qwt")]
+
+[node name="RoomTrigger" parent="BorderWindow" index="2" unique_id=1378582814]
+visible = false
+
+[node name="Label" type="Label" parent="." unique_id=1962508793]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -494.0
+offset_top = 50.0
+offset_right = 494.0
+offset_bottom = 133.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "End of playtest!  (boss fight SOON)"
+
+[editable path="BorderWindow"]

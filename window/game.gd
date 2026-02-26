@@ -35,4 +35,5 @@ func transition_back() -> void:
 	player.reparent(GlobalData)
 	game_window.reparent(GlobalData)
 	GlobalData.update_instance(player, game_window)
+	GlobalData.room_flags[game_window.name] = true
 	get_tree().change_scene_to_file("res://overworld/overworld.tscn")
