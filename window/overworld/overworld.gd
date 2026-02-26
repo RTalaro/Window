@@ -43,8 +43,8 @@ func _ready() -> void:
 func all_values_true() -> bool:
 	for value in GlobalData.room_flags.values():
 		if !value: return false
-	return true			
-	
+	return true
+
 func game_to_overworld() -> void:
 	move_map(GlobalData.offset)
 
@@ -86,13 +86,15 @@ func move_screen(pos: Vector2i) -> void:
 		tween.tween_property(i, "position", Vector2(pos), 0.75).as_relative()
 
 	var tween: Tween = create_tween()
+	@warning_ignore("integer_division")
 	tween.tween_property(player, "position", Vector2(pos * 0.9), 0.75).as_relative().finished
-		
+	
 	await get_tree().create_timer(1.0).timeout
 	$Triggers.process_mode = Node.PROCESS_MODE_INHERIT
 	GlobalData.can_shoot = true
 	for i in $Rooms.get_children():
 		i.window_initial = i.window.position
+	@warning_ignore("integer_division")
 	ladder.position = $Rooms/BorderWindow6.window_initial + Vector2i(1280 / 2, 720 / 2)
 
 # Moves all the map components to simulate the player staying in the same spot

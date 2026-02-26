@@ -20,6 +20,7 @@ var room_flags = {"BorderWindow1": true,
 
 func create_game() -> void:
 	var p: Node = PLAYER.instantiate()
+	@warning_ignore("integer_division")
 	p.position = get_window().size / 2
 	p.position.x -= 200
 	add_child(p)
