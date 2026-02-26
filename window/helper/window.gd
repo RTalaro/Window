@@ -3,7 +3,7 @@ extends Window
 # THE BASIC WINDOW SCRIPT, SETS CAMERA POSITION AND ALLOWS FULL WINDOW DRAGGING
 
 var mouse_offset: Vector2
-var dragged: bool
+var dragged: bool = false
 var tween: Tween
 
 var in_window: bool = false # Doubles as a bool to do tween or not
@@ -28,7 +28,9 @@ func _input(event: InputEvent) -> void:
 			start_movement()
 
 func start_movement() -> void:
-	if (in_window): return
+	if (in_window):
+		stop_movement()
+		return
 	tween = create_tween().set_loops()
 	tween.tween_property(self, "position:y", 50, 1).as_relative()
 	tween.set_trans(Tween.TRANS_SINE)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://e13twguklq7e" path="res://helper/window.gd" id="1_hlokq"]
 [ext_resource type="Script" uid="uid://bbiypjal6mpkn" path="res://helper/containers/inside_container.gd" id="1_qa3aw"]
-[ext_resource type="PackedScene" uid="uid://c3sdw3yvsrj3q" path="res://helper/turret.tscn" id="2_1vxf0"]
+[ext_resource type="PackedScene" uid="uid://boulyy2tyoe4" path="res://helper/landmine.tscn" id="2_umb1n"]
 [ext_resource type="Theme" uid="uid://cbu701eo6j6jo" path="res://themes/Modern11/Modern11.tres" id="3_umb1n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qa3aw"]
@@ -10,11 +10,11 @@ size = Vector2(100, 100)
 
 [node name="InsideContainer" type="Node" unique_id=515590093]
 script = ExtResource("1_qa3aw")
-ITEM = ExtResource("2_1vxf0")
+ITEM = ExtResource("2_umb1n")
 
 [node name="Window" type="Window" parent="." unique_id=790258661]
 oversampling_override = 1.0
-position = Vector2i(-400, 36)
+position = Vector2i(-400, 28)
 always_on_top = true
 theme = ExtResource("3_umb1n")
 script = ExtResource("1_hlokq")

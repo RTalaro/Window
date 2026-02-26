@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://boulyy2tyoe4"]
 
 [ext_resource type="Script" uid="uid://y5op85csfh1b" path="res://helper/landmine.gd" id="1_urtjo"]
-[ext_resource type="Texture2D" uid="uid://byrksg6v05bmm" path="res://icon.svg" id="2_b6ao5"]
+[ext_resource type="Texture2D" uid="uid://bbd3nrpcbsbw6" path="res://assets/temp_art/landmine.png" id="2_b6ao5"]
 [ext_resource type="Texture2D" uid="uid://la8cmdsb0kwm" path="res://assets/temp_art/temp_tileset.png" id="3_b6ao5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ids4"]
-size = Vector2(32, 32)
+size = Vector2(98, 48)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_urtjo"]
-radius = 499.60983
+radius = 300.0
 
 [sub_resource type="Curve" id="Curve_urtjo"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
@@ -44,13 +44,16 @@ scale_curve = SubResource("CurveTexture_vlc7h")
 script = ExtResource("1_urtjo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1903469395]
+scale = Vector2(4, 4)
 texture = ExtResource("2_b6ao5")
+hframes = 2
 
 [node name="TriggerArea" type="Area2D" parent="." unique_id=1018171585]
 collision_layer = 0
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea" unique_id=1067027688]
+position = Vector2(0, 30)
 shape = SubResource("RectangleShape2D_7ids4")
 
 [node name="ExplosionArea" type="Area2D" parent="." unique_id=1513609199]

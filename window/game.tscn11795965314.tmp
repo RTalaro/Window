@@ -29,3 +29,5 @@ ITEM = ExtResource("6_5vw27")
 
 [node name="OutsideContainer" parent="ItemManager" unique_id=641158635 instance=ExtResource("5_hve3p")]
 ITEM = ExtResource("6_mfdv2")
+
+[editable path="ItemManager/OutsideContainer"]
