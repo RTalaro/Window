@@ -11,12 +11,14 @@ func _ready() -> void:
 func spawn_enemy() -> void:
 	var enemy = enemy_list.pick_random().instantiate()
 	if enemy is EnemyBase:
+		@warning_ignore("integer_division")
 		enemy.position = get_window().size / 2 + Vector2i(200, 0)
 	add_child(enemy)
 	
 	# Try to spawn in a second enemy
 	enemy = enemy_list.pick_random().instantiate()
 	if enemy is EnemyBase:
+		@warning_ignore("integer_division")
 		enemy.position = get_window().size / 2 + Vector2i(0, -100)
 	add_child(enemy)
 	
@@ -25,6 +27,7 @@ func spawn_enemy() -> void:
 		if enemy is NodeBase:
 			return
 		if enemy is EnemyBase:
+			@warning_ignore("integer_division")
 			enemy.position = get_window().size / 2 + Vector2i(0, 100)
 		add_child(enemy)
 		

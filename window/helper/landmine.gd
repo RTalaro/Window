@@ -16,6 +16,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if window:
+		@warning_ignore("integer_division")
 		position = window.position + Vector2i(size / 2)
 
 func _on_trigger_area_area_entered(_area: Area2D) -> void:
